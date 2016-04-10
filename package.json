@@ -1,0 +1,20 @@
+{
+  "name": "git-course",
+  "version": "1.0.0",
+  "description": "Interactive git course project made to pass last semester.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deadmbk/git-course.git"
+  },
+  "keywords": ["Git", "Course", "Interactive", "AngularJS"],
+  "author": "Maciej",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deadmbk/git-course/issues"
+  },
+  "homepage": "https://github.com/deadmbk/git-course#readme"
+}
