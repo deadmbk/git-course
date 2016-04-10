@@ -4,17 +4,30 @@
   "description": "Interactive git course project made to pass last semester.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/deadmbk/git-course.git"
   },
-  "keywords": ["Git", "Course", "Interactive", "AngularJS"],
+  "keywords": [
+    "Git",
+    "Course",
+    "Interactive",
+    "AngularJS"
+  ],
   "author": "Maciej",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/deadmbk/git-course/issues"
   },
-  "homepage": "https://github.com/deadmbk/git-course#readme"
+  "homepage": "https://github.com/deadmbk/git-course#readme",
+  "peerDependencies": {
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "bower": "^1.7.9",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-wiredep": "^3.0.0"
+  }
 }
