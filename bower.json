@@ -1,0 +1,29 @@
+{
+  "name": "git-course",
+  "description": "Interactive git course project made to pass last semester.",
+  "main": "index.js",
+  "authors": [
+    "Maciej Kamiński",
+    "Mateusz Juraszek",
+    "Mateusz Maj"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Git",
+    "Course",
+    "Interactive",
+    "AngularJS"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^2.2.3",
+    "angular": "^1.5.3"
+  }
+}
