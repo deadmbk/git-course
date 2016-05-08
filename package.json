@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Interactive git course project made to pass last semester.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "postinstall": "bower install"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/deadmbk/git-course.git"
@@ -26,6 +28,12 @@
     "grunt": "^0.4.5",
     "grunt-bower-task": "^0.4.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-include-source": "^0.7.1"
+    "grunt-include-source": "^0.7.1",
+    "grunt-wiredep": "^3.0.1",
+    "http-server": "^0.9.0"
+  },
+  "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1",
+    "postinstall": "bower install"
   }
 }

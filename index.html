@@ -4,28 +4,37 @@
     <meta charset="UTF-8">
     <title>Git Course</title>
 
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <!-- endbower -->
+
     <!-- include: "type": "css", "files": "assets/libs/**/*.css" -->
-    
+    <link href="assets/libs/ng-terminal-emulator/example/content/example.css" rel="stylesheet" type="text/css">
+    <link href="assets/libs/ng-terminal-emulator/src/vtortola.ng-terminal.css" rel="stylesheet" type="text/css">
+    <link href="assets/libs/ng-terminal-emulator/tests/jasmine-2.0.1/jasmine.css" rel="stylesheet" type="text/css">
     <!-- /include -->
 
-    <!-- include: "type": "css", "files": "assets/css/*.css" -->
-    
-    <!-- /include -->
-
-    <!-- include: "type": "js", "files": "assets/libs/**/*.js" -->
-    <script src="assets/libs/angular/angular.js"></script>
-    <script src="assets/libs/jquery/jquery.js"></script>
+    <!-- include: "type": "js", "files": ["assets/libs/ng-terminal-emulator/src/**/*.js", "assets/libs/ng-terminal-emulator/example/**/*.js"] -->
+    <script src="assets/libs/ng-terminal-emulator/src/vtortola.ng-terminal.js"></script>
+    <script src="assets/libs/ng-terminal-emulator/example/example.command.filesystem.js"></script>
+    <script src="assets/libs/ng-terminal-emulator/example/example.command.implementations.js"></script>
+    <script src="assets/libs/ng-terminal-emulator/example/example.command.tools.js"></script>
+    <script src="assets/libs/ng-terminal-emulator/example/example.js"></script>
     <!-- /include -->
 
     <!-- include: "type": "js", "files": "assets/js/*.js" -->
     
     <!-- /include -->
 
-    <!-- include: "type": "js", "files": ["app/**/*.js", "app/*.js"] -->
-    
+    <!-- include: "type": "js", "files": ["app/*.js", "app/**/*.js", "app/*.js"] -->
+    <script src="app/app.js"></script>
     <!-- /include -->
 </head>
-<body>
-
+<body ng-app="myApp">
+<div ng-controller="mainCtrl">
+    <terminal> <p class="click-me">Click me to start commanding !</p>
+    </terminal>
+</div>
 </body>
 </html>

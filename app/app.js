@@ -6,5 +6,9 @@ myApp.config(['terminalConfigurationProvider', function(terminalConfigurationPro
 }]);
 
 myApp.controller('mainCtrl', function($scope) {
-
+    $scope.$on('terminal-input', function (e, consoleInput) {
+        var cmd = consoleInput[0];
+        console.log(cmd.command);
+        // do stuff
+    });
 });

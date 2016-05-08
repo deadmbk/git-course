@@ -2,12 +2,13 @@
 module.exports = function(grunt) {
   grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
-      bower: {
-          install: {},
-          options: {
-              targetDir: "assets/libs",
-              layout: "byComponent",
-              cleanBowerDir: true
+
+      wiredep: {
+          task: {
+              src: ['index.html'],
+              options: {
+                  devDependencies: true
+              }
           }
       },
       includeSource: {
@@ -27,10 +28,11 @@ module.exports = function(grunt) {
       }
   });
 
+    grunt.loadNpmTasks('grunt-wiredep');
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-include-source');
 
-    grunt.registerTask('default', ['bower', 'includeSource']);
+    grunt.registerTask('default', ['wiredep', 'includeSource']);
     grunt.registerTask('changes', ['watch']);
 };
