@@ -1,0 +1,20 @@
+{
+  "number": 1,
+  "title": "Initializing your git project",
+  "stages": [
+    {
+      "command": "git init",
+      "availableCommands": ["git init"],
+      "description": "Lorem ipsum dolor sit amet",
+      "tooltip": "",
+      "error": ""
+    },
+    {
+      "command": "git status",
+      "availableCommands": ["git status", "git log"],
+      "description": "Lorem ipsum dolor sit amet",
+      "tooltip": "",
+      "error": ""
+    }
+  ]
+}

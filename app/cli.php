@@ -1,8 +1,9 @@
 <?php
 
    // header('Content-type', 'application/json; charset=iso-8859-2');
-   header('Content-Type: text/html; charset=UTF-8');
+   //header('Content-Type: text/html; charset=UTF-8');
     define("GIT_BIN", '"D:/Program Files x86/Git/bin/git.exe"');
+    define("COURSE_DIR", 'D:\git-test');
 
     $requestCommand = trim(stripslashes($_GET['cmd']));
     $command = replaceFirstOccurrence($requestCommand, 'git');
@@ -16,23 +17,30 @@
     $arr = array();
     $return_var = NULL;
 
-    $locale = 'pl_PL.1250';
-    setlocale(LC_ALL, "");
-    putenv('LC_ALL=""');
+    $locale = 'pl_PL.UTF-8';
+    //$locale = 'fr_FR.UTF-8';
+    setlocale(LC_ALL, $locale);
+    putenv('LC_ALL='.$locale);
 
+    chdir(COURSE_DIR);
     $var = shell_exec($command . " 2>&1");//, $arr, $return_var);
 //    print $return_var;
 
+    //print_r($arr);
+    //$var = implode($arr);
+
 //    print '<pre>';
-    print $var;
-    print "<br>";
-    print substr($var, 69, 1);
-    print "<br>";
-    print str_replace('ę', 'e', $var);
-    print "<br>";
-    print mb_convert_encoding($var, 'utf-8', 'latin2');
-    print "<br>";
-    print preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $var);
+//    print $var;
+//    print "<br>";
+//    print substr($var, 69, 1);
+//    print "<br>";
+//    print str_replace('ę', 'e', $var);
+//    print "<br>";
+//    print mb_convert_encoding($var, 'utf-8', 'latin2');
+//    print "<br>";
+//    print preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $var);
+//    print "<br>";
+//    print utf8_encode($var);
 //    var_dump($arr);
 //    print '</pre>';
 
