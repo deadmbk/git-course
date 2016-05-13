@@ -31,13 +31,15 @@
     <!-- /include -->
 
     <!-- include: "type": "js", "files": ["app/*.js", "app/**/*.js", "app/*.js"] -->
-    <script src="app/app.config.js"></script>
-    <script src="app/app.js"></script>
+    <script src="app/constants.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.route.js"></script>
     <script src="app/components/lesson/lesson.controller.js"></script>
+    <script src="app/services/lesson.service.js"></script>
     <!-- /include -->
 </head>
 <body ng-app="myApp">
-<div ng-controller="mainCtrl">
+<div>
 
 
     <div ng-view></div>
