@@ -7,6 +7,5 @@
             'ngRoute', 
             'myApp.constants'
         ])
-        
-        
+    
 })();

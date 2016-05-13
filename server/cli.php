@@ -1,9 +1,13 @@
 <?php
 
+    $config = array();
+    $config = parse_ini_file("config.ini");
+
+
    // header('Content-type', 'application/json; charset=iso-8859-2');
    //header('Content-Type: text/html; charset=UTF-8');
-    define("GIT_BIN", '"D:/Program Files x86/Git/bin/git.exe"');
-    define("COURSE_DIR", 'D:\git-test');
+    define("GIT_BIN", '"' . $config['git_path'] . '"');
+    define("COURSE_DIR", $config['course_directory']);
 
     $requestCommand = trim(stripslashes($_GET['cmd']));
     $command = replaceFirstOccurrence($requestCommand, 'git');
@@ -12,7 +16,6 @@
 //    print '<pre>' . escapeshellcmd($command) . '</pre>';
 //    print '<pre>' . replaceFirstOccurrence($command, 'git') . '</pre>';
 //    print '<pre>' . escapeshellcmd(replaceFirstOccurrence($command, 'git')) . '</pre>';
-
 
     $arr = array();
     $return_var = NULL;

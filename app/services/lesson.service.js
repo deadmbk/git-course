@@ -27,9 +27,11 @@
             } else {
 
                 var filename = lessonFilenames[nr - 1];
-                return $http.get(CONFIG.LESSON_DIR + filename, function(response) {
-                    return response.data;
-                });
+                // TODO: walidacja lessonService.getLesson
+                return $http.get(CONFIG.LESSON_DIR + filename)
+                    .then(function(response) {
+                        return response.data;
+                    });
             }
 
             return null;
