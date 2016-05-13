@@ -1,14 +1,15 @@
 (function() {
+    'use strict';
 
-    var config_data =  {
-        'GENERAL_CONFIG': {
-            'LESSON_DIR': 'resources/lessons/'
-        }
-    };
+    angular
+        .module('myApp')
+        .config(configure);
 
-    var config_module = angular.module('myApp.config', []);
-    angular.forEach(config_data, function(key, value) {
-        config_module.constant(value, key);
-    });
+    configure.$inject = ['terminalConfigurationProvider'];
 
+    function configure(terminalConfigurationProvider) {
+        terminalConfigurationProvider.outputDelay = 0;
+        terminalConfigurationProvider.allowTypingWriteDisplaying = false;
+    }
+    
 })();
