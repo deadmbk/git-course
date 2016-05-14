@@ -1,0 +1,20 @@
+{
+  "id": 2,
+  "title": "Your first commit",
+  "stages": [
+    {
+      "command": "git init",
+      "availableCommands": ["git init", "git status"],
+      "description": "Duis vel lectus metus.",
+      "tooltip": "",
+      "error": "Please use git init command"
+    },
+    {
+      "command": "git status",
+      "availableCommands": ["git status", "git log"],
+      "description": "Vestibulum in risus quis est fermentum ultricies in nec nunc",
+      "tooltip": "",
+      "error": "dsadsa"
+    }
+  ]
+}

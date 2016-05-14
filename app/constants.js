@@ -3,7 +3,8 @@
     var config_data =  {
         'GENERAL_CONFIG': {
             'LESSON_DIR': 'resources/lessons/',
-            'SERVER_CLI_FILE': 'server/cli.php'
+            'SERVER_CLI_FILE': 'server/cli.php',
+            'LESSON_URI': '/lesson/'
         }
     };
 

@@ -19,8 +19,8 @@ module.exports = function(grunt) {
       },
       watch: {
           libs: {
-              files: ['<%= bower.options.targetDir %>'],
-              tasks: ['includeSource'],
+              files: ['bower_components/*'],
+              tasks: ['includeSource', 'wiredep'],
               options: {
                   event: ['added', 'deleted']
               }

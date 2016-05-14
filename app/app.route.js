@@ -5,17 +5,19 @@
         .module('myApp')
         .config(routeConfig);
 
-    routeConfig.$inject = ['$routeProvider'];
+    routeConfig.$inject = ['$routeProvider', 'GENERAL_CONFIG'];
 
-    function routeConfig($routeProvider) {
+    function routeConfig($routeProvider, CONFIG) {
 
-        $routeProvider.when('/', {
-            templateUrl: 'app/components/home/home.html'
-        }).when('/lesson/:id', {
+        $routeProvider.when('/home', {
+            templateUrl: 'app/components/home/home.html',
+            controller: 'homeController',
+            controllerAs: 'homeCtrl'
+        }).when(CONFIG.LESSON_URI + ':id', {
             templateUrl: 'app/components/lesson/lesson.html',
             controller: 'lessonController',
             controllerAs: 'lessonCtrl'
-        }).otherwise({redirectTo: '/'});
+        }).otherwise({redirectTo: '/home'});
 
     }
 

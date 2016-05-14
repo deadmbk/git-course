@@ -8,14 +8,22 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <!-- endbower -->
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
 
     <!-- include: "type": "css", "files": "assets/libs/**/*.css" -->
     <link href="assets/libs/ng-terminal-emulator/example/content/example.css" rel="stylesheet" type="text/css">
     <link href="assets/libs/ng-terminal-emulator/src/vtortola.ng-terminal.css" rel="stylesheet" type="text/css">
     <link href="assets/libs/ng-terminal-emulator/tests/jasmine-2.0.1/jasmine.css" rel="stylesheet" type="text/css">
+    <!-- /include -->
+
+    <!-- include: "type": "css", "files": "assets/css/*.css" -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <!-- /include -->
 
     <!-- include: "type": "js", "files": ["assets/libs/ng-terminal-emulator/src/**/*.js", "assets/libs/ng-terminal-emulator/example/**/*.js"] -->
@@ -31,21 +39,31 @@
     <!-- /include -->
 
     <!-- include: "type": "js", "files": ["app/*.js", "app/**/*.js", "app/*.js"] -->
-    <script src="app/app.module.js"></script>
     <script src="app/app.config.js"></script>
+    <script src="app/app.module.js"></script>
     <script src="app/app.route.js"></script>
     <script src="app/constants.js"></script>
+    <script src="app/components/home/home.controller.js"></script>
     <script src="app/components/lesson/lesson.controller.js"></script>
     <script src="app/services/lesson.service.js"></script>
     <script src="app/services/server.service.js"></script>
     <!-- /include -->
 </head>
 <body ng-app="myApp">
-<div>
+    <div class="container-fluid">
+
+        <section id="top">
+            <h1>Git course</h1>
+        </section>
+
+        <main class="row">
+
+            <div ng-view></div>
+
+        </main>
 
 
-    <div ng-view></div>
 
-</div>
+    </div>
 </body>
 </html>

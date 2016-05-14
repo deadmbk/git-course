@@ -5,30 +5,33 @@
         .module('myApp')
         .controller('lessonController', lessonController);
     
-    lessonController.$inject = ['$scope', '$log', '$routeParams', 'lessonService', 'serverService'];
+    lessonController.$inject = ['GENERAL_CONFIG', '$scope', '$log', '$routeParams', 'lessonService', 'serverService'];
 
-    function lessonController($scope, $log, $routeParams, lessonService, serverService) {
+    function lessonController(CONFIG, $scope, $log, $routeParams, lessonService, serverService) {
 
         var vm = this;
 
-        vm.lesson = {};                 // obiekt z lekcją
-        vm.currentStage = {};           // obiekt zawierający aktywny etap lekcji
-        vm.finished = false;            // czy lekcja została zakończona? Powinno odblokować przycisk do przejścia dalej
-        vm.isLast = false;
+        vm.button = {};                             // przycisk kontynuowana/zakończenia kursu
+        vm.lesson = {};                             // obiekt z lekcją
+        vm.lessonNo = parseInt($routeParams.id);    // numer lekcji pobrany z adresu TODO: walidacja
+        vm.currentStage = {};                       // obiekt zawierający aktywny etap lekcji
+        vm.finished = false;                        // czy lekcja została zakończona? Powinno odblokować przycisk do przejścia dalej
+        vm.isLast = false;                          // czy jest to ostatnia lekcja kursu TODO: być może zbędne
 
-        var stageCounter = 0;               // wskaźnik na aktywny etap (nie zależy od id stage'a)
+        var stageCounter = 0;                       // wskaźnik na aktywny etap (nie zależy od id stage'a
 
         init();
         $scope.$on('terminal-input', onConsoleInput);
 
         ///////////////////////////////////////////////////////////////
-        
+
         function init() {
 
-            lessonService.getLesson($routeParams.id)
+            lessonService.getLesson(vm.lessonNo)
                 .then(onReceivedLesson, onError);
 
-            vm.isLast = lessonService.isLast($routeParams.id);
+            vm.isLast = lessonService.isLast(vm.lessonNo);
+            vm.button = determineButtonDetails();
 
         }
 
@@ -66,6 +69,27 @@
                 sendToOutput(vm.currentStage["error"]); // TODO: walidacja
             }
 
+        }
+
+        function determineButtonDetails()  {
+
+            var url = '';
+            var text = '';
+
+            if (vm.isLast) {
+                url = '/';
+                text = 'Finish';
+            } else {
+                url = '#' + CONFIG.LESSON_URI + (vm.lessonNo + 1);
+                text = 'Continue';
+            }
+
+            var buttonObj = {
+                url: url,
+                text: text
+            };
+
+            return buttonObj;
         }
 
         function setCurrentStage() {

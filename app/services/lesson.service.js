@@ -9,7 +9,7 @@
     
     function lessonService($http, CONFIG) {
 
-        var lessonFilenames = ["lesson1.json"];
+        var lessonFilenames = ["lesson1.json", "lesson2.json"];
 
         var factory = {
             getLesson: getLesson,
@@ -38,7 +38,7 @@
         }
 
         function isLast(nr) {
-            return (lessonFilenames === nr);
+            return (lessonFilenames.length === nr);
         }
     }
 

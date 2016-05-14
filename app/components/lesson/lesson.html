@@ -1,8 +1,9 @@
-<div class="desc" style="color: white;">
-    {{lessonCtrl.currentStage.description}}
-</div>
+<section class="lesson-header">
+    <h2>{{lessonCtrl.lesson.title}}</h2>
+    <p>{{lessonCtrl.currentStage.description}}</p>
+</section>
+
 <terminal>
-    <p class="click-me">Click me to start commanding !</p>
 </terminal>
 
-<a href="#/lesson/{{lesson.id + 1}}" ng-disabled="!finished">Continue</a>
+<a href="{{lessonCtrl.button.url}}" class="btn btn-success" ng-class="{disabled: !lessonCtrl.finished}">{{lessonCtrl.button.text}}</a>
