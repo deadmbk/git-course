@@ -3,6 +3,10 @@
 ## Opis
 Projekt powstał w celu zaliczenia przedmiotu na ostatnim semestrze. Korzystasz na własną odpowiedzialność.
 
+### Jak to działa?
+Korzystamy z terminala dostępnego tutaj https://github.com/vtortola/ng-terminal-emulator. Idea polega na tym, że wykorzystujemy Git zainstalowany na serwerze (czyli lokalnie) do wywoływania komend Gita. Aplikacja w angularze pobiera rzeczy wpisane w terminalu i wysyła do skryptu PHP na serwerze, który następnie wykonuje polecenia za pomocą wbudowanej funkcji. Następnie zwraca rezultat do klienta. 
+Lekcje są zapisane w formie plików JSON w folderze /resources/lessons. Każda lekcja może zawierać kilka etapów (stage'y), a każdy z nich zawiera opis ćwiczenia, dozwolone komendy oraz komendę kończącą etap.
+
 ## Wymagania
 - serwer z PHP
 - Node.js
