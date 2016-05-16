@@ -3,16 +3,24 @@
   "title": "Your first commit",
   "stages": [
     {
-      "command": "git init",
-      "availableCommands": ["git init", "git status"],
-      "description": "Duis vel lectus metus.",
+      "command": "git status",
+      "availableCommands": ["git status", "git log"],
+      "description": "Dodaliśmy nowy plik tekstowy do Twojego repozytorium o nazwie document.txt. Użyj poznanej wcześniej komendy 'git status', żeby dowiedzieć się o tym na własną rękę.",
       "tooltip": "",
-      "error": "Please use git init command"
+      "error": "Please use git init command",
+      "prerequisites": ["createTextFile"]
+    },
+    {
+      "command": "git add document.txt",
+      "availableCommands": ["git status", "git log", "git add document.txt"],
+      "description": "Jak widzisz, Git nie śledzi zmian dokonanych w obrębie tego pliku. Musimy zmienić to zachowanie przez dodanie go do repo przez komendę git add nazwa_pliku.",
+      "tooltip": "",
+      "error": "dsadsa"
     },
     {
       "command": "git status",
       "availableCommands": ["git status", "git log"],
-      "description": "Vestibulum in risus quis est fermentum ultricies in nec nunc",
+      "description": "Świetnie! Teraz wywołaj ponownie 'git status', żeby sprawdzić czy wszystko przebiegło w porządku.",
       "tooltip": "",
       "error": "dsadsa"
     }

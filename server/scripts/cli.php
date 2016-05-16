@@ -1,7 +1,7 @@
 <?php
 
     $config = array();
-    $config = parse_ini_file("config.ini");
+    $config = parse_ini_file("../config.ini");
 
 
    // header('Content-type', 'application/json; charset=iso-8859-2');

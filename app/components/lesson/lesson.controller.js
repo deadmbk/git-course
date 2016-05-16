@@ -40,6 +40,26 @@
             setCurrentStage();
         }
 
+        function executePrerequisiteScripts() {
+
+            if (vm.currentStage.hasOwnProperty("prerequisites")) {
+
+                if (vm.currentStage["prerequisites"].constructor === Array) {
+
+                    var prerequisites = vm.currentStage["prerequisites"];
+                    for (var i = 0; i < prerequisites.length; i++) {
+                        serverService.executeScript(prerequisites[i])
+                            .then(function(response) {
+                                $log.info("Executed script '" + prerequisites[i] + "'.")
+                            }, onError);
+                    }
+
+                } else {
+                    $log.error('Property \'prerequisites\' of stage object is not valid. Excepted array.');
+                }
+            }
+        }
+
         function onError(reason) {
             console.log(reason);
         }
@@ -100,8 +120,11 @@
 
                 for (var i = 0; i < vm.lesson["stages"].length; i++) {
                     if (i === stageCounter) {
+
                         $log.info("Starting stage nr " + stageCounter);
                         vm.currentStage = vm.lesson["stages"][i];
+
+                        executePrerequisiteScripts();
                     }
                 }
             }
