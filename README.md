@@ -10,11 +10,11 @@ Lekcje są zapisane w formie plików JSON w folderze /resources/lessons. Każda 
 ## Wymagania
 - PHP
 - Node.js
-- Bower (chyba opcjonalnie*)
-- Grunt (chyba opcjonalnie*)
+- Bower (opcjonalnie*)
+- Grunt
 - Git
 
-*Z tego co pamiętam, Node.js zainstaluje te narzędzia lokalnie i będą działały w obrębie projektu, ale nie wiem czy polecenia zadziałają z konsoli. Warto zainstalować je globalnie komendą npm install -g bower i npm install -g grunt.
+*Node.js instaluje narzędzia lokalnie i będą działały w obrębie projektu, ale nie zadziałają one z konsoli. Warto zainstalować je globalnie komendą npm install -g bower i npm install -g grunt. Komenda Grunta będzie potrzebna do uruchamiania serwera.
 
 ### PHP
 PHP jest potrzebny do wykonywania poleceń po stronie serwera. Konieczna jest wersja >5.4 ze względu na wbudowany serwer. Musi znajdować się w PATH.
@@ -29,15 +29,13 @@ Bower jest managerem do zarządzania paczkami webowymi. Instaluje Angulara i Boo
 Grunt jest systemem do automatyzacji pracy. Z jego pomocą można definiować zadania, które pozwolą na automatyczne wykonywanie pewnych czynności. Dzięki niemu po dodaniu nowego pliku js lub css można szybko wrzucić go do index.html. Grunt odpala także wbudowany serwer PHP, który przyjmuje komendy.
 
 ### Git
-System kontroli wersji, wokół którego obraca się ten projekt. Git jest potrzebny na serwerze, aby można było wykonywać jego komendy w ramach tworzonego kursu.
+System kontroli wersji, wokół którego obraca się ten projekt. Git jest potrzebny na serwerze, aby można było wykonywać jego komendy w ramach tworzonego kursu. Dodatkowo musi się znajdować w PATH, w innym wypadku nie zadziała instalacja paczek npm install.
 
 ## Instalacja
-1. Zainstalować Node.js (i dodać do PATH).
+1. Zainstalować Node.js (i dodać do PATH - domyślnie instalator sam tego dokona).
 2. Zainstalować PHP w wersji >5.4 (i dodać do PATH).
 3. Pobrać oraz wrzucić projekt do wybranego katalogu.
-4. Będąc w katalogu projektu w konsoli wykonać polecenie npm install - zostaną zainstalowane Bower i Grunt
-	a) to polecenie wywoła także polecenie bower install, które zainstaluje paczki Bowera
-	b) jeśli tak się nie stało, warto zainstalować Bowera (i Grunta) globalnie komendą npm install -g bower
+4. Będąc w katalogu projektu w konsoli wykonać polecenie npm install - zostaną zainstalowane Bower i Grunt. To polecenie wywoła także polecenie bower install, które zainstaluje paczki Bowera.
 5. Skonfigurować plik server/config.ini podając ścieżkę do zainstalowanego Gita oraz katalog, gdzie kurs będzie tworzył pliki.
 6. Odpalić serwer poleceniem grunt start.
 
