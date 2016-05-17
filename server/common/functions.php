@@ -1,27 +1,36 @@
 <?php
 require 'config.php';
 
-function delete_files($target) {
+function delete_directory($dir) {
 
-    if(is_dir($target)){
+    try {
 
-        $files = glob($target . '*', GLOB_MARK); //GLOB_MARK adds a slash to directories returned
+        $it = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
+        $files = new RecursiveIteratorIterator($it, RecursiveIteratorIterator::CHILD_FIRST);
 
         foreach($files as $file) {
-            delete_files($file);
+
+            if ($file -> isDir()) {
+                rmdir($file -> getRealPath());
+            } else {
+                chmod($file -> getRealPath(), 0777);
+                unlink($file->getRealPath());
+            }
         }
 
-        rmdir($target);
+        rmdir($dir);
 
-    } elseif(is_file($target)) {
-        unlink($target);
+    } catch(UnexpectedValueException $e) {
+       //print "Provided path does not exist or is not directory.";
     }
 
 }
 
 function resetWorkspace() {
-    delete_files(COURSE_DIR);
+    delete_directory(COURSE_DIR);
+
     mkdir(COURSE_DIR);
+    chmod(COURSE_DIR, 0777);
 }
 
 function setWorkspace() {
@@ -30,4 +39,21 @@ function setWorkspace() {
 
 function createFile($filename, $content) {
     return file_put_contents($filename, $content);
+}
+
+function executeGitCommand($requestCommand) {
+
+    $command = replaceFirstOccurrence($requestCommand, 'git');
+    return shell_exec($command . " 2>&1");
+
+}
+
+function replaceFirstOccurrence($haystack, $needle) {
+
+    $pos = stripos($haystack, $needle);
+    if ($pos !== false) {
+        return substr_replace($haystack, GIT_BIN, $pos, strlen($needle));
+    }
+
+    return $haystack;
 }

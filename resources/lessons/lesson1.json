@@ -7,7 +7,8 @@
       "availableCommands": ["git init", "git status"],
       "description": "Lorem ipsum dolor sit amet",
       "tooltip": "",
-      "error": "Please use git init command"
+      "error": "Please use git init command",
+      "prerequisites": ["lesson1"]
     },
     {
       "command": "git status",

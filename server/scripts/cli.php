@@ -1,18 +1,17 @@
 <?php
 require '../common/functions.php';
 
-resetWorkspace();
 setWorkspace();
 
-$requestCommand = trim(stripslashes($_GET['cmd']));
-$command = replaceFirstOccurrence($requestCommand, 'git');
+
 
 //    print '<pre>' . $command . '</pre>';
 //    print '<pre>' . escapeshellcmd($command) . '</pre>';
 //    print '<pre>' . replaceFirstOccurrence($command, 'git') . '</pre>';
 //    print '<pre>' . escapeshellcmd(replaceFirstOccurrence($command, 'git')) . '</pre>';
 
-$var = shell_exec($command . " 2>&1");//, $arr, $return_var);
+$requestCommand = trim(stripslashes($_GET['cmd']));
+$var = executeGitCommand($requestCommand);//, $arr, $return_var);
 
 //    print '<pre>';
 //    print $var;
@@ -40,13 +39,3 @@ $response['output'] = $var;
 print json_encode($response);
 
 // --------------------------------------------------
-
-function replaceFirstOccurrence($haystack, $needle) {
-
-    $pos = stripos($haystack, $needle);
-    if ($pos !== false) {
-        return substr_replace($haystack, GIT_BIN, $pos, strlen($needle));
-    }
-
-    return $haystack;
-}

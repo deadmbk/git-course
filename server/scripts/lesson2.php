@@ -10,4 +10,6 @@ $data = "This is a text file used to teach people how to properly add and commit
 
 resetWorkspace();
 setWorkspace();
+executeGitCommand("git init");
+
 createFile($name, $data);

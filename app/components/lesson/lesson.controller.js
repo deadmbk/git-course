@@ -72,7 +72,7 @@
 
         // -------------------------------------------------------------
         function onReceivedOutput(data) {
-
+            
             // TODO: obsługa błędów z serwera
             sendToOutput(data.output);
 
