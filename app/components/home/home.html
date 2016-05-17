@@ -1,4 +1,5 @@
 <h1>Home page</h1>
 <p>Lorem ipsum dolor sit amet</p>
 
-<a href="{{homeCtrl.url}}" class="btn btn-success">Start course</a>
+<a href="" ng-click="homeCtrl.start()" class="btn btn-success">Start a new course</a>
+<a href="" ng-click="homeCtrl.continue()" class="btn btn-success" ng-show="homeCtrl.lessonNo">Continue the course</a>

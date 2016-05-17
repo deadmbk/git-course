@@ -4,7 +4,8 @@
     angular
         .module('myApp', [
             'ng-terminal-example', 
-            'ngRoute', 
+            'ngRoute',
+            'LocalStorageModule',
             'myApp.constants'
         ])
     

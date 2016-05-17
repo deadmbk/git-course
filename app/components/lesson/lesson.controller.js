@@ -5,9 +5,9 @@
         .module('myApp')
         .controller('lessonController', lessonController);
     
-    lessonController.$inject = ['GENERAL_CONFIG', '$scope', '$log', '$routeParams', 'lessonService', 'serverService'];
+    lessonController.$inject = ['GENERAL_CONFIG', '$scope', '$log', '$location', '$routeParams', 'lessonService', 'serverService', 'storageService'];
 
-    function lessonController(CONFIG, $scope, $log, $routeParams, lessonService, serverService) {
+    function lessonController(CONFIG, $scope, $log, $location, $routeParams, lessonService, serverService, storageService) {
 
         var vm = this;
 
@@ -27,6 +27,10 @@
 
         function init() {
 
+            if (redirectToCurrentLesson()) {
+                return;
+            }
+
             lessonService.getLesson(vm.lessonNo)
                 .then(onReceivedLesson, onError);
 
@@ -35,9 +39,24 @@
 
         }
 
+        function redirectToCurrentLesson() {
+
+            var storageLesson = storageService.getCurrentLesson();
+            if (storageLesson === null) {
+                return $location.path(CONFIG.LESSON_URI + '1');
+            } else if (storageLesson !== vm.lessonNo) {
+                return $location.path(CONFIG.LESSON_URI + parseInt(storageLesson));
+            }
+
+            return false;
+        }
+
         function onReceivedLesson(data) {
+
             vm.lesson = data;
             setCurrentStage();
+
+            storageService.setCurrentLesson(vm.lessonNo);
         }
 
         function executePrerequisiteScripts() {
@@ -140,6 +159,7 @@
 
                 // finishLesson
                 vm.finished = true;
+                storageService.setCurrentLesson(vm.lessonNo + 1);
                 alert('Lesson is finished.');
             }
 

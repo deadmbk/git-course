@@ -5,13 +5,32 @@
         .module('myApp')
         .controller('homeController', homeController);
 
-    homeController.$inject = ['GENERAL_CONFIG'];
+    homeController.$inject = ['GENERAL_CONFIG', '$location', 'storageService'];
 
-    function homeController(CONFIG) {
+    function homeController(CONFIG, $location, storageService) {
 
         var vm = this;
 
-        vm.url = '#' + CONFIG.LESSON_URI + '1';
+        vm.lessonNo = storageService.getCurrentLesson();
+        vm.continue = continueCourse;
+        vm.start = startCourse;
+
+        storageService.setCurrentLesson(2);
+        ///////////////////////////////////////////////////
+
+        function continueCourse() {
+
+            if (vm.lessonNo !== null) {
+                return $location.path(CONFIG.LESSON_URI + vm.lessonNo);
+            }
+
+            return false;
+        }
+
+        function startCourse() {
+            storageService.setCurrentLesson(1);
+            return $location.path(CONFIG.LESSON_URI + '1');
+        }
 
     }
 
