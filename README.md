@@ -8,12 +8,16 @@ Korzystamy z terminala dostępnego tutaj https://github.com/vtortola/ng-terminal
 Lekcje są zapisane w formie plików JSON w folderze /resources/lessons. Każda lekcja może zawierać kilka etapów (stage'y), a każdy z nich zawiera opis ćwiczenia, dozwolone komendy oraz komendę kończącą etap.
 
 ## Wymagania
+- PHP
 - Node.js
 - Bower (chyba opcjonalnie*)
 - Grunt (chyba opcjonalnie*)
 - Git
 
 *Z tego co pamiętam, Node.js zainstaluje te narzędzia lokalnie i będą działały w obrębie projektu, ale nie wiem czy polecenia zadziałają z konsoli. Warto zainstalować je globalnie komendą npm install -g bower i npm install -g grunt.
+
+### PHP
+PHP jest potrzebny do wykonywania poleceń po stronie serwera. Konieczna jest wersja >5.4 ze względu na wbudowany serwer. Musi znajdować się w PATH.
 
 ### Node.js
 Node Package Manager (npm) zarządza pakietami i narzędziami Javascriptu. Za jego pomocą instalujemy Bowera i Grunta oraz kilka wtyczek powiązanych z tym drugim. Plik konfiguracyjny to package.json. Zainstalowane narzędzia znajdują się w /node_modules.
@@ -28,7 +32,8 @@ Grunt jest systemem do automatyzacji pracy. Z jego pomocą można definiować za
 System kontroli wersji, wokół którego obraca się ten projekt. Git jest potrzebny na serwerze, aby można było wykonywać jego komendy w ramach tworzonego kursu.
 
 ## Instalacja
-1. Zainstalować Node.js (i dodać go do PATH).
+1. Zainstalować Node.js (i dodać do PATH).
+2. Zainstalować PHP w wersji >5.4 (i dodać do PATH).
 3. Pobrać oraz wrzucić projekt do wybranego katalogu.
 4. Będąc w katalogu projektu w konsoli wykonać polecenie npm install - zostaną zainstalowane Bower i Grunt
 	a) to polecenie wywoła także polecenie bower install, które zainstaluje paczki Bowera
