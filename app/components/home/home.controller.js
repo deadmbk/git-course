@@ -16,6 +16,7 @@
         vm.start = startCourse;
 
         storageService.setCurrentLesson(2);
+
         ///////////////////////////////////////////////////
 
         function continueCourse() {

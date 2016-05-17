@@ -5,7 +5,10 @@
         .module('myApp')
         .controller('lessonController', lessonController);
     
-    lessonController.$inject = ['GENERAL_CONFIG', '$scope', '$log', '$location', '$routeParams', 'lessonService', 'serverService', 'storageService'];
+    lessonController.$inject = [
+        'GENERAL_CONFIG', '$scope', '$log', '$location',
+        '$routeParams', 'lessonService', 'serverService', 'storageService'
+    ];
 
     function lessonController(CONFIG, $scope, $log, $location, $routeParams, lessonService, serverService, storageService) {
 
@@ -16,7 +19,7 @@
         vm.lessonNo = parseInt($routeParams.id);    // numer lekcji pobrany z adresu TODO: walidacja
         vm.currentStage = {};                       // obiekt zawierający aktywny etap lekcji
         vm.finished = false;                        // czy lekcja została zakończona? Powinno odblokować przycisk do przejścia dalej
-        vm.isLast = false;                          // czy jest to ostatnia lekcja kursu TODO: być może zbędne
+        vm.isLast = false;                          // czy jest to ostatnia lekcja kursu
 
         var stageCounter = 0;                       // wskaźnik na aktywny etap (nie zależy od id stage'a
 
@@ -39,6 +42,7 @@
 
         }
 
+        // -------------------------------------------------------------
         function redirectToCurrentLesson() {
 
             var storageLesson = storageService.getCurrentLesson();
@@ -51,20 +55,57 @@
             return false;
         }
 
+        // -------------------------------------------------------------
         function onReceivedLesson(data) {
 
+            // TODO: walidacja, co jak null?
             vm.lesson = data;
             setCurrentStage();
 
             storageService.setCurrentLesson(vm.lessonNo);
         }
 
+        // -------------------------------------------------------------
+        function onError(reason) {
+            console.log(reason);
+        }
+
+        // -------------------------------------------------------------
+        function onReceivedOutput(data) {
+
+            // TODO: obsługa błędów z serwera
+            sendToOutput(data.output);
+
+            var command = data.command;
+
+            if (isExpectedCommand(command)) {
+                finishStage();
+            }
+
+        }
+
+        // -------------------------------------------------------------
+        function onConsoleInput(e, consoleInput) {
+            
+            var input = consoleInput[0];
+            var cmd =  input.command;
+
+            if (isValidCommand(cmd)) {
+                serverService.executeCommand(cmd).then(onReceivedOutput);
+            } else {
+                sendToOutput(vm.currentStage["error"]); // TODO: dopracować
+            }
+
+        }
+
+        // -------------------------------------------------------------
         function executePrerequisiteScripts() {
 
             if (vm.currentStage.hasOwnProperty("prerequisites")) {
 
                 if (vm.currentStage["prerequisites"].constructor === Array) {
 
+                    // TODO: poprawić
                     var prerequisites = vm.currentStage["prerequisites"];
                     for (var i = 0; i < prerequisites.length; i++) {
                         serverService.executeScript(prerequisites[i])
@@ -79,37 +120,7 @@
             }
         }
 
-        function onError(reason) {
-            console.log(reason);
-        }
-
-        function onReceivedOutput(data) {
-
-            // TODO: obsługa błędów z serwera
-            sendToOutput(data.output);
-
-            var command = data.command;
-
-            if (isExpectedCommand(command)) {
-                finishStage();
-            }
-
-        }
-
-        function onConsoleInput(e, consoleInput) {
-            
-            var input = consoleInput[0];
-            var cmd =  input.command;
-
-            // TODO: walidacja
-            if (isValidCommand(cmd)) {
-                serverService.executeCommand(cmd).then(onReceivedOutput);
-            } else {
-                sendToOutput(vm.currentStage["error"]); // TODO: walidacja
-            }
-
-        }
-
+        // -------------------------------------------------------------
         function determineButtonDetails()  {
 
             var url = '';
@@ -131,6 +142,7 @@
             return buttonObj;
         }
 
+        // -------------------------------------------------------------
         function setCurrentStage() {
 
             if (!(vm.lesson.hasOwnProperty("stages") && vm.lesson["stages"].constructor === Array)) {
@@ -149,6 +161,7 @@
             }
         }
 
+        // -------------------------------------------------------------
         function finishStage() {
 
             $log.info("Finishing stage nr " + stageCounter);
@@ -157,7 +170,7 @@
                 setCurrentStage();
             } else {
 
-                // finishLesson
+                // TODO: finishLesson
                 vm.finished = true;
                 storageService.setCurrentLesson(vm.lessonNo + 1);
                 alert('Lesson is finished.');
@@ -165,10 +178,12 @@
 
         }
 
+        // -------------------------------------------------------------
         function isExpectedCommand(command) {
-            return (vm.currentStage.command === command);
+            return (vm.currentStage["command"] === command);
         }
 
+        // -------------------------------------------------------------
         function isValidCommand(command) {
 
             if (vm.currentStage.hasOwnProperty("availableCommands") && vm.currentStage["availableCommands"].constructor === Array) {
@@ -187,6 +202,7 @@
             return false;
         }
 
+        // -------------------------------------------------------------
         function sendToOutput(output) {
 
             $scope.$broadcast('terminal-output', {

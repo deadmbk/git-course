@@ -8,7 +8,7 @@
       "description": "Dodaliśmy nowy plik tekstowy do Twojego repozytorium o nazwie document.txt. Użyj poznanej wcześniej komendy 'git status', żeby dowiedzieć się o tym na własną rękę.",
       "tooltip": "",
       "error": "Please use git init command",
-      "prerequisites": ["createTextFile"]
+      "prerequisites": ["lesson2"]
     },
     {
       "command": "git add document.txt",
