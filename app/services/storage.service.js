@@ -11,7 +11,8 @@
 
         var factory = {
             getCurrentLesson: getCurrentLesson,
-            setCurrentLesson: setCurrentLesson
+            setCurrentLesson: setCurrentLesson,
+            removeCurrentLesson: removeCurrentLesson
         };
 
         return factory;
@@ -22,6 +23,10 @@
 
         function setCurrentLesson(lessonNo) {
             return localStorageService.set(CONFIG.LESSON_STORAGE_KEY, lessonNo);
+        }
+
+        function removeCurrentLesson() {
+            return localStorageService.remove(CONFIG.LESSON_STORAGE_KEY);
         }
 
     }

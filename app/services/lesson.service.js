@@ -13,7 +13,8 @@
 
         var factory = {
             getLesson: getLesson,
-            isLast: isLast
+            isLast: isLast,
+            ifExists: ifExists
         };
 
         return factory;
@@ -39,6 +40,10 @@
 
         function isLast(nr) {
             return (lessonFilenames.length === nr);
+        }
+        
+        function ifExists(nr) {
+            return (nr > 0 && nr <= lessonFilenames.length);
         }
     }
 

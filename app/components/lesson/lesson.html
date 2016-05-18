@@ -6,4 +6,5 @@
 <terminal>
 </terminal>
 
-<a href="{{lessonCtrl.button.url}}" class="btn btn-success" ng-class="{disabled: !lessonCtrl.finished}">{{lessonCtrl.button.text}}</a>
+<a href class="btn btn-success" ng-show="!lessonCtrl.isLast" ng-click="lessonCtrl.continue()" ng-class="{disabled: !lessonCtrl.finished}">Continue</a>
+<a href class="btn btn-success" ng-show="lessonCtrl.isLast" ng-click="lessonCtrl.finish()" ng-class="{disabled: !lessonCtrl.finished}">Finish</a>

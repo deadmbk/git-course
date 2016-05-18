@@ -14,14 +14,16 @@
 
         var vm = this;
 
-        vm.button = {};                             // przycisk kontynuowana/zakończenia kursu
         vm.lesson = {};                             // obiekt z lekcją
         vm.lessonNo = parseInt($routeParams.id);    // numer lekcji pobrany z adresu TODO: walidacja
         vm.currentStage = {};                       // obiekt zawierający aktywny etap lekcji
         vm.finished = false;                        // czy lekcja została zakończona? Powinno odblokować przycisk do przejścia dalej
         vm.isLast = false;                          // czy jest to ostatnia lekcja kursu
 
-        var stageCounter = 0;                       // wskaźnik na aktywny etap (nie zależy od id stage'a
+        vm.finish = finishCourse;
+        vm.continue = continueCourse;
+
+        var stageCounter = 0;                       // wskaźnik na aktywny etap (nie zależy od id stage'a)
 
         init();
         $scope.$on('terminal-input', onConsoleInput);
@@ -30,29 +32,32 @@
 
         function init() {
 
-            if (redirectToCurrentLesson()) {
-                return;
+            if (lessonService.ifExists(vm.lessonNo)) {
+
+                // Pobierz dane lekcji
+                lessonService.getLesson(vm.lessonNo)
+                    .then(onReceivedLesson, onError);
+
+                vm.isLast = lessonService.isLast(vm.lessonNo);
+
+                // Ustaw lekcję jako obecną
+                storageService.setCurrentLesson(vm.lessonNo);
+
+            } else {
+
+                // Pobierz aktywny nr lekcji z localStorage
+                var storageLesson = storageService.getCurrentLesson();
+
+                // Jeśli dana nie istnieje, to przekieruj na pierwszą lekcję
+                // Jeśli istnieje, przekieruj na lekcję o pobranej wartości
+                if (storageLesson === null) {
+                    return $location.path(CONFIG.LESSON_URI + '1');
+                } else {
+                    return $location.path(CONFIG.LESSON_URI + parseInt(storageLesson));
+                }
+
             }
 
-            lessonService.getLesson(vm.lessonNo)
-                .then(onReceivedLesson, onError);
-
-            vm.isLast = lessonService.isLast(vm.lessonNo);
-            vm.button = determineButtonDetails();
-
-        }
-
-        // -------------------------------------------------------------
-        function redirectToCurrentLesson() {
-
-            var storageLesson = storageService.getCurrentLesson();
-            if (storageLesson === null) {
-                return $location.path(CONFIG.LESSON_URI + '1');
-            } else if (storageLesson !== vm.lessonNo) {
-                return $location.path(CONFIG.LESSON_URI + parseInt(storageLesson));
-            }
-
-            return false;
         }
 
         // -------------------------------------------------------------
@@ -99,6 +104,17 @@
         }
 
         // -------------------------------------------------------------
+        function continueCourse() {
+            return $location.path(CONFIG.LESSON_URI + (vm.lessonNo + 1));
+        }
+
+        // -------------------------------------------------------------
+        function finishCourse() {
+            storageService.removeCurrentLesson();
+            return $location.path('/');
+        }
+
+        // -------------------------------------------------------------
         function executePrerequisiteScripts() {
 
             if (vm.currentStage.hasOwnProperty("prerequisites")) {
@@ -118,28 +134,6 @@
                     $log.error('Property \'prerequisites\' of stage object is not valid. Excepted array.');
                 }
             }
-        }
-
-        // -------------------------------------------------------------
-        function determineButtonDetails()  {
-
-            var url = '';
-            var text = '';
-
-            if (vm.isLast) {
-                url = '/';
-                text = 'Finish';
-            } else {
-                url = '#' + CONFIG.LESSON_URI + (vm.lessonNo + 1);
-                text = 'Continue';
-            }
-
-            var buttonObj = {
-                url: url,
-                text: text
-            };
-
-            return buttonObj;
         }
 
         // -------------------------------------------------------------

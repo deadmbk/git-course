@@ -15,7 +15,7 @@
         vm.continue = continueCourse;
         vm.start = startCourse;
 
-        storageService.setCurrentLesson(2);
+        //storageService.setCurrentLesson(2);
 
         ///////////////////////////////////////////////////
 
