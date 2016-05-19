@@ -13,6 +13,7 @@
 
         var factory = {
             getLesson: getLesson,
+            getLessons: getLessons,
             isLast: isLast,
             ifExists: ifExists
         };
@@ -20,6 +21,26 @@
         return factory;
 
         /////////////////////////////////////
+        function getLessons() {
+
+            var filename = "lessons.json";
+
+            return $http.get(CONFIG.LESSON_DIR + filename)
+                .then(function(response) {
+                    return response.data;
+                });
+        }
+
+        function getLesson2(nr) {
+
+            var filename = "lessons.json";
+
+            return $http.get(CONFIG.LESSON_DIR + filename)
+                .then(function(response) {
+                    return response.data[nr - 1];
+                });
+
+        }
 
         function getLesson(nr) {
 

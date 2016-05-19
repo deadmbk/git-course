@@ -35,13 +35,8 @@
             if (lessonService.ifExists(vm.lessonNo)) {
 
                 // Pobierz dane lekcji
-                lessonService.getLesson(vm.lessonNo)
+                lessonService.getLessons()
                     .then(onReceivedLesson, onError);
-
-                vm.isLast = lessonService.isLast(vm.lessonNo);
-
-                // Ustaw lekcję jako obecną
-                storageService.setCurrentLesson(vm.lessonNo);
 
             } else {
 
@@ -64,9 +59,12 @@
         function onReceivedLesson(data) {
 
             // TODO: walidacja, co jak null?
-            vm.lesson = data;
+            vm.lesson = data[vm.lessonNo - 1];
+            vm.isLast = (data.length === vm.lessonNo);
+
             setCurrentStage();
 
+            // Ustaw lekcję jako obecną
             storageService.setCurrentLesson(vm.lessonNo);
         }
 

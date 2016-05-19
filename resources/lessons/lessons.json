@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "Initializing your git project",
+    "stages": [
+      {
+        "command": "git init",
+        "availableCommands": ["git init", "git status"],
+        "description": "Lorem ipsum dolor sit amet",
+        "tooltip": "",
+        "error": "Please use git init command",
+        "prerequisites": ["lesson1"]
+      },
+      {
+        "command": "git status",
+        "availableCommands": ["git status", "git log"],
+        "description": "Aenean eleifend, libero nec vulputate dapibus, lacus enim scelerisque odio, bibendum dapibus orci massa et nulla",
+        "tooltip": "",
+        "error": "dsadsa"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Your first commit",
+    "stages": [
+      {
+        "command": "git status",
+        "availableCommands": ["git status", "git log"],
+        "description": "Dodaliśmy nowy plik tekstowy do Twojego repozytorium o nazwie document.txt. Użyj poznanej wcześniej komendy 'git status', żeby dowiedzieć się o tym na własną rękę.",
+        "tooltip": "",
+        "error": "Please use git init command",
+        "prerequisites": ["lesson2"]
+      },
+      {
+        "command": "git add document.txt",
+        "availableCommands": ["git status", "git log", "git add document.txt"],
+        "description": "Jak widzisz, Git nie śledzi zmian dokonanych w obrębie tego pliku. Musimy zmienić to zachowanie przez dodanie go do repo przez komendę git add nazwa_pliku.",
+        "tooltip": "",
+        "error": "dsadsa"
+      },
+      {
+        "command": "git status",
+        "availableCommands": ["git status", "git log"],
+        "description": "Świetnie! Teraz wywołaj ponownie 'git status', żeby sprawdzić czy wszystko przebiegło w porządku.",
+        "tooltip": "",
+        "error": "dsadsa"
+      }
+    ]
+  }
+]

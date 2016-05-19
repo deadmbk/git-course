@@ -48,6 +48,8 @@
     <script src="app/services/lesson.service.js"></script>
     <script src="app/services/server.service.js"></script>
     <script src="app/services/storage.service.js"></script>
+    <script src="app/shared/menu/menu.controller.js"></script>
+    <script src="app/shared/menu/menu.directive.js"></script>
     <!-- /include -->
 </head>
 <body ng-app="myApp">
@@ -59,6 +61,7 @@
 
         <main class="row">
 
+            <menu></menu>
             <div ng-view></div>
 
         </main>
