@@ -3,7 +3,7 @@
 
     angular
         .module('myApp')
-        .directive('menu', menuDirective);
+        .directive('lessonMenu', menuDirective);
 
     function menuDirective() {
         return {

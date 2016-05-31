@@ -1,5 +1,20 @@
-<h1>Home page</h1>
-<p>Lorem ipsum dolor sit amet</p>
+<div class="row">
 
-<a href="" ng-click="homeCtrl.start()" class="btn btn-success">Start a new course</a>
-<a href="" ng-click="homeCtrl.continue()" class="btn btn-success" ng-show="homeCtrl.lessonNo">Continue the course</a>
+    <!-- Blog Post Content Column -->
+    <div class="col-lg-8">
+        <h1>Home page</h1>
+        <p>Lorem ipsum dolor sit amet</p>
+
+        <a href="" ng-click="homeCtrl.start()" class="btn btn-success">Start a new course</a>
+        <a href="" ng-click="homeCtrl.continue()" class="btn btn-success" ng-show="homeCtrl.lessonNo">Continue the course</a>
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="well">
+            <lesson-menu></lesson-menu>
+        </div>
+
+    </div>
+
+</div>

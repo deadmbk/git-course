@@ -1,10 +1,37 @@
-<section class="lesson-header">
-    <h2>{{lessonCtrl.lesson.title}}</h2>
-    <p>{{lessonCtrl.currentStage.description}}</p>
-</section>
+<div class="row">
 
-<terminal>
-</terminal>
+    <!-- Blog Post Content Column -->
+    <div class="col-lg-8">
 
-<a href class="btn btn-success" ng-show="!lessonCtrl.isLast" ng-click="lessonCtrl.continue()" ng-class="{disabled: !lessonCtrl.finished}">Continue</a>
-<a href class="btn btn-success" ng-show="lessonCtrl.isLast" ng-click="lessonCtrl.finish()" ng-class="{disabled: !lessonCtrl.finished}">Finish</a>
+        <section class="lesson-header">
+            <h2>{{lessonCtrl.lesson.title}}</h2>
+            <a href><i class="glyphicon glyphicon-arrow-left"></i></a>
+            <a href><i class="glyphicon glyphicon-arrow-right"></i></a>
+            <p>{{lessonCtrl.currentStage.description}}</p>
+        </section>
+
+        <terminal></terminal>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="actions">
+            <a href class="btn btn-success" ng-show="!lessonCtrl.isLast" ng-click="lessonCtrl.continue()" ng-class="{disabled: !lessonCtrl.finished}">Continue the course</a>
+            <a href class="btn btn-success" ng-show="lessonCtrl.isLast" ng-click="lessonCtrl.finish()" ng-class="{disabled: !lessonCtrl.finished}">Finish the course</a>
+            <a href class="btn btn-danger">Reset progress</a>
+        </div>
+
+
+        <div class="well">
+            <h4><i class="glyphicon glyphicon-question-sign"></i>Lesson Tip</h4>
+            <p>{{lessonCtrl.currentStage.tooltip}}</p>
+        </div>
+
+        <div class="well">
+            <lesson-menu></lesson-menu>
+        </div>
+
+    </div>
+
+</div>

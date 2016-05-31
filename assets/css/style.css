@@ -1,3 +1,23 @@
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.actions {
+    min-height: 20px;
+    padding: 19px 0 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.actions a {
+    margin-right: 15px;
+    padding: 6px 18px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
 .terminal-viewport pre {
     color: #F6F6FF;
 }
