@@ -6,7 +6,8 @@
             'ng-terminal-example', 
             'ngRoute',
             'LocalStorageModule',
-            'myApp.constants'
+            'myApp.constants',
+            'ui.bootstrap'
         ])
     
 })();

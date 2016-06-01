@@ -2,6 +2,10 @@ body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+.lesson-header .desc {
+    height: 50px;
+}
+
 .actions {
     min-height: 20px;
     padding: 19px 0 0;

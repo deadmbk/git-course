@@ -7,10 +7,10 @@
     
     lessonController.$inject = [
         'GENERAL_CONFIG', '$scope', '$log', '$location',
-        '$routeParams', 'lessonService', 'serverService', 'storageService'
+        '$routeParams', 'lessonService', 'serverService', 'storageService', '$uibModal'
     ];
 
-    function lessonController(CONFIG, $scope, $log, $location, $routeParams, lessonService, serverService, storageService) {
+    function lessonController(CONFIG, $scope, $log, $location, $routeParams, lessonService, serverService, storageService, $uibModal) {
 
         var vm = this;
 
@@ -85,7 +85,9 @@
         function onReceivedOutput(data) {
             
             // TODO: obsługa błędów z serwera
-            sendToOutput(data.output);
+            if (data.output) {
+                sendToOutput(data.output);
+            }
 
             var command = data.command;
 
@@ -122,12 +124,12 @@
                 return $location.path(CONFIG.LESSON_URI + (vm.lessonNo - 1));
             }
         }
-
-        function resetCourse() {
-            storageService.removeCurrentLesson();
-            storageService.resetFinishedLessons();
-            return $location.path('/');
-        }
+        //
+        // function resetCourse() {
+        //     storageService.removeCurrentLesson();
+        //     storageService.resetFinishedLessons();
+        //     return $location.path('/');
+        // }
 
         // -------------------------------------------------------------
         function finishCourse() {
@@ -227,6 +229,30 @@
                 breakLine: true
             });
         }
+
+        function resetCourse() {
+
+            var modalInstance = $uibModal.open({
+                animation: false,
+                templateUrl: 'app/components/lesson/lesson-reset-modal.html',
+                controller: 'lessonModalController',
+                resolve: {
+                    message: function () {
+                        return "Czy na pewno chcesz zakończyć kurs? Twoje postępy zostaną zresetowane.";
+                    }
+                }
+            });
+
+            modalInstance.result.then(function(result) {
+
+                storageService.removeCurrentLesson();
+                storageService.resetFinishedLessons();
+                return $location.path('/');
+
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        };
     }
 
 })();
