@@ -15,7 +15,8 @@
             removeCurrentLesson: removeCurrentLesson,
 
             setLessonAsFinished: setLessonAsFinished,
-            getFinishedLessons: getFinishedLessons
+            getFinishedLessons: getFinishedLessons,
+            resetFinishedLessons: resetFinishedLessons
         };
 
         return factory;
@@ -48,9 +49,18 @@
                 arr = angular.fromJson(key);
             }
 
-            arr.push(lessonNo);
-            key = angular.toJson(arr);
-            localStorageService.set(CONFIG.LESSON_STORAGE_FINISHED_KEY, key);
+            console.log(arr);
+
+            if (arr.indexOf(lessonNo) === -1) {
+                arr.push(lessonNo);
+                key = angular.toJson(arr);
+                localStorageService.set(CONFIG.LESSON_STORAGE_FINISHED_KEY, key);
+            }
+
+        }
+
+        function resetFinishedLessons() {
+            return localStorageService.remove(CONFIG.LESSON_STORAGE_FINISHED_KEY);
         }
 
         function removeCurrentLesson() {

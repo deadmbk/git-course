@@ -111,9 +111,9 @@
 
         // -------------------------------------------------------------
         function goNext() {
-            if (!vm.finished) {
+            //if (!vm.isLast) {
                 return $location.path(CONFIG.LESSON_URI + (vm.lessonNo + 1));
-            }
+           // }
         }
 
         // -------------------------------------------------------------
@@ -125,6 +125,7 @@
 
         function resetCourse() {
             storageService.removeCurrentLesson();
+            storageService.resetFinishedLessons();
             return $location.path('/');
         }
 

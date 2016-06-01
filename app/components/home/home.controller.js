@@ -29,6 +29,7 @@
         }
 
         function startCourse() {
+            storageService.resetFinishedLessons();
             storageService.setCurrentLesson(1);
             return $location.path(CONFIG.LESSON_URI + '1');
         }

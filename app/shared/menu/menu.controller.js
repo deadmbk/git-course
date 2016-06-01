@@ -25,8 +25,7 @@
         }
 
         function isLessonFinished(lessonNo) {
-            return true;
-            // TODO: return vm.finishedLessons.contains(lessonNo);
+            return (vm.finishedLessons.indexOf(lessonNo) !== -1);
         }
 
         function onReceivedLessons(data) {
