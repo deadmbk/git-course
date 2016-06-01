@@ -14,8 +14,25 @@ body {
     padding: 6px 18px;
 }
 
+.well .glyphicon {
+    margin-right: 5px;
+    position: relative;
+    top: 3px;
+}
+
+lesson-menu li .glyphicon {
+    float: right;
+}
+
 footer {
     margin: 50px 0;
+}
+
+.terminal {
+    height: 300px;
+    -webkit-box-shadow: 6px 6px 7px -2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 6px 6px 7px -2px rgba(0,0,0,0.6);
+    box-shadow: 6px 6px 7px -2px rgba(0,0,0,0.6);
 }
 
 .terminal-viewport pre {

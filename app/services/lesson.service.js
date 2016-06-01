@@ -9,13 +9,8 @@
     
     function lessonService($http, CONFIG) {
 
-        var lessonFilenames = ["lesson1.json", "lesson2.json"];
-
         var factory = {
-            getLesson: getLesson,
-            getLessons: getLessons,
-            isLast: isLast,
-            ifExists: ifExists
+            getLessons: getLessons
         };
 
         return factory;
@@ -23,26 +18,22 @@
         /////////////////////////////////////
         function getLessons() {
 
-            var filename = "lessons.json";
-
-            return $http.get(CONFIG.LESSON_DIR + filename)
+            return $http.get(CONFIG.LESSON_DIR + CONFIG.LESSON_STORE_PATH)
                 .then(function(response) {
                     return response.data;
                 });
         }
 
-        function getLesson2(nr) {
+        function getLesson(nr) {
 
-            var filename = "lessons.json";
-
-            return $http.get(CONFIG.LESSON_DIR + filename)
+            return $http.get(CONFIG.LESSON_DIR + CONFIG.LESSON_STORE_PATH)
                 .then(function(response) {
                     return response.data[nr - 1];
                 });
 
         }
 
-        function getLesson(nr) {
+        function getLesson2(nr) {
 
             if (nr > lessonFilenames.length) {
                 return null;
@@ -60,11 +51,20 @@
         }
 
         function isLast(nr) {
-            return (lessonFilenames.length === nr);
+
+            this.getLessons().then(function(data) {
+                return (data.length === nr);
+            });
+
         }
         
         function ifExists(nr) {
-            return (nr > 0 && nr <= lessonFilenames.length);
+
+            this.getLessons().then(function(data) {
+                console.log(nr <= data.length);
+                return (nr > 0 && nr <= data.length);
+            });
+
         }
     }
 

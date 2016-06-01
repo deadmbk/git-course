@@ -12,7 +12,10 @@
         var factory = {
             getCurrentLesson: getCurrentLesson,
             setCurrentLesson: setCurrentLesson,
-            removeCurrentLesson: removeCurrentLesson
+            removeCurrentLesson: removeCurrentLesson,
+
+            setLessonAsFinished: setLessonAsFinished,
+            getFinishedLessons: getFinishedLessons
         };
 
         return factory;
@@ -23,6 +26,31 @@
 
         function setCurrentLesson(lessonNo) {
             return localStorageService.set(CONFIG.LESSON_STORAGE_KEY, lessonNo);
+        }
+
+        function getFinishedLessons() {
+            var key = localStorageService.get(CONFIG.LESSON_STORAGE_FINISHED_KEY);
+            var arr = Array();
+
+            if (key !== null) {
+                arr = angular.fromJson(key);
+            }
+
+            return arr;
+        }
+
+        function setLessonAsFinished(lessonNo) {
+
+            var key = localStorageService.get(CONFIG.LESSON_STORAGE_FINISHED_KEY);
+            var arr = Array();
+
+            if (key !== null) {
+                arr = angular.fromJson(key);
+            }
+
+            arr.push(lessonNo);
+            key = angular.toJson(arr);
+            localStorageService.set(CONFIG.LESSON_STORAGE_FINISHED_KEY, key);
         }
 
         function removeCurrentLesson() {

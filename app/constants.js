@@ -4,7 +4,9 @@
         'GENERAL_CONFIG': {
             'LESSON_DIR': 'resources/lessons/',
             'LESSON_URI': '/lesson/',
+            'LESSON_STORE_PATH': 'lessons.json',
             'LESSON_STORAGE_KEY': 'lessonNo',
+            'LESSON_STORAGE_FINISHED_KEY': 'finished',
             'SERVER_SCRIPTS_DIR': 'server/scripts/'
         }
     };

@@ -5,8 +5,8 @@
 
         <section class="lesson-header">
             <h2>{{lessonCtrl.lesson.title}}</h2>
-            <a href><i class="glyphicon glyphicon-arrow-left"></i></a>
-            <a href><i class="glyphicon glyphicon-arrow-right"></i></a>
+            <a href class="btn" ng-click="lessonCtrl.previous()" ng-class="{disabled: lessonCtrl.lessonNo === 1}"><i class="glyphicon glyphicon-arrow-left"></i></a>
+            <a href class="btn" ng-click="lessonCtrl.next()" ng-class="{disabled: lessonCtrl.isLast}"><i class="glyphicon glyphicon-arrow-right"></i></a>
             <p>{{lessonCtrl.currentStage.description}}</p>
         </section>
 
@@ -17,13 +17,13 @@
     <div class="col-md-4">
 
         <div class="actions">
-            <a href class="btn btn-success" ng-show="!lessonCtrl.isLast" ng-click="lessonCtrl.continue()" ng-class="{disabled: !lessonCtrl.finished}">Continue the course</a>
+            <a href class="btn btn-success" ng-show="!lessonCtrl.isLast" ng-click="lessonCtrl.next()" ng-class="{disabled: !lessonCtrl.finished}">Continue the course</a>
             <a href class="btn btn-success" ng-show="lessonCtrl.isLast" ng-click="lessonCtrl.finish()" ng-class="{disabled: !lessonCtrl.finished}">Finish the course</a>
-            <a href class="btn btn-danger">Reset progress</a>
+            <a href class="btn btn-danger" ng-click="lessonCtrl.reset()">Reset progress</a>
         </div>
 
 
-        <div class="well">
+        <div class="well lesson-tip">
             <h4><i class="glyphicon glyphicon-question-sign"></i>Lesson Tip</h4>
             <p>{{lessonCtrl.currentStage.tooltip}}</p>
         </div>

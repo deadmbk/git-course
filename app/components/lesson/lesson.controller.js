@@ -21,7 +21,10 @@
         vm.isLast = false;                          // czy jest to ostatnia lekcja kursu
 
         vm.finish = finishCourse;
-        vm.continue = continueCourse;
+        vm.reset = resetCourse;
+
+        vm.next = goNext;
+        vm.previous = goPrevious;
 
         var stageCounter = 0;                       // wskaźnik na aktywny etap (nie zależy od id stage'a)
 
@@ -32,40 +35,45 @@
 
         function init() {
 
-            if (lessonService.ifExists(vm.lessonNo)) {
+            lessonService.getLessons()
+                .then(onReceivedLessons, onError);
 
-                // Pobierz dane lekcji
-                lessonService.getLessons()
-                    .then(onReceivedLesson, onError);
+        }
 
+        function redirect() {
+
+            // TODO: przypadek gdy storage trzyma nieistniejący numer lekcji i przejdziemy pod adres innej (lub tej samej) nieistniejącej lekcji
+
+            // Pobierz aktywny nr lekcji z localStorage
+            var storageLesson = storageService.getCurrentLesson();
+
+            // Jeśli dana nie istnieje, to przekieruj na pierwszą lekcję
+            // Jeśli istnieje, przekieruj na lekcję o pobranej wartości
+            if (storageLesson === null) {
+                return $location.path(CONFIG.LESSON_URI + '1');
             } else {
-
-                // Pobierz aktywny nr lekcji z localStorage
-                var storageLesson = storageService.getCurrentLesson();
-
-                // Jeśli dana nie istnieje, to przekieruj na pierwszą lekcję
-                // Jeśli istnieje, przekieruj na lekcję o pobranej wartości
-                if (storageLesson === null) {
-                    return $location.path(CONFIG.LESSON_URI + '1');
-                } else {
-                    return $location.path(CONFIG.LESSON_URI + parseInt(storageLesson));
-                }
-
+                return $location.path(CONFIG.LESSON_URI + parseInt(storageLesson));
             }
 
         }
 
         // -------------------------------------------------------------
-        function onReceivedLesson(data) {
+        function onReceivedLessons(data) {
 
-            // TODO: walidacja, co jak null?
             vm.lesson = data[vm.lessonNo - 1];
-            vm.isLast = (data.length === vm.lessonNo);
+            if (vm.lesson == null) {
 
-            setCurrentStage();
+                return redirect();
 
-            // Ustaw lekcję jako obecną
-            storageService.setCurrentLesson(vm.lessonNo);
+            } else {
+
+                vm.isLast = (data.length === vm.lessonNo);
+
+                storageService.setCurrentLesson(vm.lessonNo);
+                setCurrentStage();
+
+            }
+
         }
 
         // -------------------------------------------------------------
@@ -102,8 +110,22 @@
         }
 
         // -------------------------------------------------------------
-        function continueCourse() {
-            return $location.path(CONFIG.LESSON_URI + (vm.lessonNo + 1));
+        function goNext() {
+            if (!vm.finished) {
+                return $location.path(CONFIG.LESSON_URI + (vm.lessonNo + 1));
+            }
+        }
+
+        // -------------------------------------------------------------
+        function goPrevious() {
+            if (vm.lessonNo - 1 > 0) {
+                return $location.path(CONFIG.LESSON_URI + (vm.lessonNo - 1));
+            }
+        }
+
+        function resetCourse() {
+            storageService.removeCurrentLesson();
+            return $location.path('/');
         }
 
         // -------------------------------------------------------------
@@ -165,6 +187,7 @@
                 // TODO: finishLesson
                 vm.finished = true;
                 storageService.setCurrentLesson(vm.lessonNo + 1);
+                storageService.setLessonAsFinished(vm.lessonNo);
                 alert('Lesson is finished.');
             }
 

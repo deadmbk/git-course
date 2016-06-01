@@ -12,12 +12,21 @@
         var vm = this;
 
         vm.lessons = {};
+        vm.finishedLessons = [];
+
         vm.go = goToLesson;
+        vm.isFinished = isLessonFinished;
 
         init();
 
         function init() {
             lessonService.getLessons().then(onReceivedLessons, onError);
+            vm.finishedLessons = storageService.getFinishedLessons();
+        }
+
+        function isLessonFinished(lessonNo) {
+            return true;
+            // TODO: return vm.finishedLessons.contains(lessonNo);
         }
 
         function onReceivedLessons(data) {
