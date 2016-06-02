@@ -7,15 +7,17 @@
     
     lessonController.$inject = [
         'GENERAL_CONFIG', '$scope', '$log', '$location',
-        '$routeParams', 'lessonService', 'serverService', 'storageService', '$uibModal'
+        '$routeParams', 'lessonService', 'serverService', 'storageService', 'modalService'
     ];
 
-    function lessonController(CONFIG, $scope, $log, $location, $routeParams, lessonService, serverService, storageService, $uibModal) {
+    function lessonController(CONFIG, $scope, $log, $location, $routeParams, lessonService, serverService, storageService, modalService) {
 
         var vm = this;
 
+        vm.courseFinished = false;
         vm.lesson = {};                             // obiekt z lekcją
         vm.lessonNo = parseInt($routeParams.id);    // numer lekcji pobrany z adresu TODO: walidacja
+        vm.lessonCount;
         vm.currentStage = {};                       // obiekt zawierający aktywny etap lekcji
         vm.finished = false;                        // czy lekcja została zakończona? Powinno odblokować przycisk do przejścia dalej
         vm.isLast = false;                          // czy jest to ostatnia lekcja kursu
@@ -68,6 +70,8 @@
             } else {
 
                 vm.isLast = (data.length === vm.lessonNo);
+                vm.lessonCount = data.length;
+                vm.courseFinished = isCourseFinished();
 
                 storageService.setCurrentLesson(vm.lessonNo);
                 setCurrentStage();
@@ -124,17 +128,10 @@
                 return $location.path(CONFIG.LESSON_URI + (vm.lessonNo - 1));
             }
         }
-        //
-        // function resetCourse() {
-        //     storageService.removeCurrentLesson();
-        //     storageService.resetFinishedLessons();
-        //     return $location.path('/');
-        // }
 
         // -------------------------------------------------------------
-        function finishCourse() {
-            storageService.removeCurrentLesson();
-            return $location.path('/');
+        function isCourseFinished() {
+            return (storageService.getFinishedLessons().length === vm.lessonCount);
         }
 
         // -------------------------------------------------------------
@@ -189,9 +186,13 @@
 
                 // TODO: finishLesson
                 vm.finished = true;
+
                 storageService.setCurrentLesson(vm.lessonNo + 1);
                 storageService.setLessonAsFinished(vm.lessonNo);
-                alert('Lesson is finished.');
+
+                vm.courseFinished = isCourseFinished();
+
+                lessonFinishedInfo();
             }
 
         }
@@ -230,18 +231,58 @@
             });
         }
 
+        // -------------------------------------------------------------
+        function lessonFinishedInfo() {
+
+            var title = "Lekcja ukończona";
+            var message = "Udało Ci się zakończyć lekcje! Aby kontynuować, naciśnij przycisk Kontynuuj";
+
+            var modalInstance = modalService.createModal(title,  message, "Kontynuuj", "", false);
+
+            modalInstance.result.then(function(result) {
+
+                if (vm.isLast) {
+                    finishCourse();
+                } else {
+                    goNext();
+                }
+
+            });
+
+        }
+
+        // -------------------------------------------------------------
+        function finishCourse() {
+
+            if (!vm.courseFinished) {
+
+                var title = "Zakończenie kursu";
+                var message = "Ukończyłeś ostatnią lekcję, ale wciąż masz niedokończone lekcje. Możesz zakończyć kurs teraz albo anulować akcję i wrócić do pozostałych lekcji";
+
+                var modalInstance = modalService.createModal(title,  message, "Zakończ");
+
+                modalInstance.result.then(function(result) {
+
+                    storageService.removeCurrentLesson();
+                    return $location.path('/');
+
+                });
+
+            } else {
+
+                storageService.removeCurrentLesson();
+                return $location.path('/');
+
+            }
+        }
+
+        // -------------------------------------------------------------
         function resetCourse() {
 
-            var modalInstance = $uibModal.open({
-                animation: false,
-                templateUrl: 'app/components/lesson/lesson-reset-modal.html',
-                controller: 'lessonModalController',
-                resolve: {
-                    message: function () {
-                        return "Czy na pewno chcesz zakończyć kurs? Twoje postępy zostaną zresetowane.";
-                    }
-                }
-            });
+            var title = "Zakończenie kursu";
+            var message = "Czy na pewno chcesz zakończyć kurs? Twoje postępy zostaną zresetowane.";
+
+            var modalInstance = modalService.createModal(title,  message);
 
             modalInstance.result.then(function(result) {
 
@@ -249,9 +290,8 @@
                 storageService.resetFinishedLessons();
                 return $location.path('/');
 
-            }, function () {
-                $log.info('Modal dismissed at: ' + new Date());
             });
+
         };
     }
 

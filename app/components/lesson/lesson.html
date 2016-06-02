@@ -19,8 +19,8 @@
     <div class="col-md-4">
 
         <div class="actions">
-            <a href class="btn btn-success" ng-show="!lessonCtrl.isLast" ng-click="lessonCtrl.next()" ng-class="{disabled: !lessonCtrl.finished}">Continue the course</a>
-            <a href class="btn btn-success" ng-show="lessonCtrl.isLast" ng-click="lessonCtrl.finish()" ng-class="{disabled: !lessonCtrl.finished}">Finish the course</a>
+            <a href class="btn btn-success" ng-show="!(lessonCtrl.courseFinished || lessonCtrl.isLast)" ng-click="lessonCtrl.next()" ng-class="{disabled: !lessonCtrl.finished}">Continue the course</a>
+            <a href class="btn btn-success" ng-show="lessonCtrl.courseFinished || lessonCtrl.isLast" ng-click="lessonCtrl.finish()" ng-class="{disabled: !(lessonCtrl.courseFinished || lessonCtrl.finished)}">Finish the course</a>
             <a href class="btn btn-danger" ng-click="lessonCtrl.reset()">Reset progress</a>
         </div>
 

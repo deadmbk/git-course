@@ -42,3 +42,16 @@ footer {
 .terminal-viewport pre {
     color: #F6F6FF;
 }
+
+.modal-header {
+    border: none;
+}
+
+.modal-body {
+    padding: 0 15px 15px;
+}
+
+.modal-footer {
+    padding: 0 15px 15px;
+    border: none;
+}

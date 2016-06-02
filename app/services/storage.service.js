@@ -49,8 +49,6 @@
                 arr = angular.fromJson(key);
             }
 
-            console.log(arr);
-
             if (arr.indexOf(lessonNo) === -1) {
                 arr.push(lessonNo);
                 key = angular.toJson(arr);
