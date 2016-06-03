@@ -7,3 +7,5 @@ require '../common/functions.php';
 
 resetWorkspace();
 setWorkspace();
+
+?>

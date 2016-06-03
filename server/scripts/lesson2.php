@@ -1,5 +1,5 @@
 <?php
-require '../common/functions.php';
+require 'lesson1.php';
 
 //////////////////////////////////////
 /////// Lesson 2 workspace set ///////
@@ -8,8 +8,8 @@ require '../common/functions.php';
 $name = "document.txt";
 $data = "This is a text file used to teach people how to properly add and commit files.";
 
-resetWorkspace();
-setWorkspace();
 executeGitCommand("git init");
 
 createFile($name, $data);
+
+?>
