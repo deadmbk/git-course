@@ -24,7 +24,7 @@
                 });
         }
 
-        function getLesson(nr) {
+        /*function getLesson(nr) {
 
             return $http.get(CONFIG.LESSON_DIR + CONFIG.LESSON_STORE_PATH)
                 .then(function(response) {
@@ -65,7 +65,7 @@
                 return (nr > 0 && nr <= data.length);
             });
 
-        }
+        }*/
     }
 
 })();

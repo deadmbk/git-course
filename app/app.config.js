@@ -3,19 +3,20 @@
 
     angular
         .module('myApp')
-        .config(configure)
+        .config(configureTerminal)
         .config(configureStorage);
 
-    configure.$inject = ['terminalConfigurationProvider', 'localStorageServiceProvider'];
+    configureTerminal.$inject = ['terminalConfigurationProvider'];
+    configureStorage.$inject = ['localStorageServiceProvider'];
 
-    function configure(terminalConfigurationProvider) {
+    function configureTerminal(terminalConfigurationProvider) {
         terminalConfigurationProvider.outputDelay = 0;
         terminalConfigurationProvider.allowTypingWriteDisplaying = false;
     }
 
     function configureStorage(localStorageServiceProvider) {
         localStorageServiceProvider
-            .setStorageType('sessionStorage')
+            .setStorageType('localStorage')
             .setPrefix('gc') // git-course
             .setStorageCookie(30, '/');
     }

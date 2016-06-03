@@ -14,6 +14,8 @@
 
         var vm = this;
 
+        // TODO: courseController powinien zajmować się logiką związaną z całym kursem (zmienne lessonCount i courseFinished), a nie lessonController
+
         vm.courseFinished = false;
         vm.lesson = {};                             // obiekt z lekcją
         vm.lessonNo = parseInt($routeParams.id);    // numer lekcji pobrany z adresu TODO: walidacja
@@ -74,29 +76,39 @@
                 vm.courseFinished = isCourseFinished();
 
                 storageService.setCurrentLesson(vm.lessonNo);
-                setCurrentStage();
 
+                $log.info("[Lesson " + vm.lessonNo +  "] Starting lesson \"" + vm.lesson.title + "\".");
+                setCurrentStage();
             }
 
         }
 
         // -------------------------------------------------------------
         function onError(reason) {
-            console.log(reason);
+            $log.error(reason);
         }
 
         // -------------------------------------------------------------
         function onReceivedOutput(data) {
-            
-            // TODO: obsługa błędów z serwera
-            if (data.output) {
-                sendToOutput(data.output);
-            }
 
-            var command = data.command;
+            if (data instanceof Object
+                && data.hasOwnProperty("command")
+                && data.hasOwnProperty("output")
+                && data.hasOwnProperty("exitCode")) {
 
-            if (isExpectedCommand(command)) {
-                finishStage();
+                if (data.exitCode != 0) {
+                    $log.error("Response return value suggests that an error has occured with Git command.\n Output: " + data.output);
+                    sendToOutput("An error occured with executing your command. Please report this to administrators of the website.");
+                } else {
+
+                    sendToOutput(data.output);
+                    if (isExpectedCommand(data.command)) {
+                        finishStage();
+                    }
+                }
+
+            } else {
+                $log.error("Server error occured.\n Received response: " + data);
             }
 
         }
@@ -141,12 +153,13 @@
 
                 if (vm.currentStage["prerequisites"].constructor === Array) {
 
-                    // TODO: poprawić
                     var prerequisites = vm.currentStage["prerequisites"];
                     for (var i = 0; i < prerequisites.length; i++) {
-                        serverService.executeScript(prerequisites[i])
+
+                        var prereq = prerequisites[i];
+                        serverService.executeScript(prereq)
                             .then(function(response) {
-                                $log.info("Executed script '" + prerequisites[i] + "'.")
+                                $log.info("[Lesson " + vm.lessonNo +  "] Executed prerequisite script '" + prereq + "'.")
                             }, onError);
                     }
 
@@ -166,7 +179,7 @@
                 for (var i = 0; i < vm.lesson["stages"].length; i++) {
                     if (i === stageCounter) {
 
-                        $log.info("Starting stage nr " + stageCounter);
+                        $log.info("[Lesson " + vm.lessonNo +  "] Starting stage nr " + stageCounter);
                         vm.currentStage = vm.lesson["stages"][i];
 
                         executePrerequisiteScripts();
@@ -178,14 +191,15 @@
         // -------------------------------------------------------------
         function finishStage() {
 
-            $log.info("Finishing stage nr " + stageCounter);
+            $log.info("[Lesson " + vm.lessonNo +  "] Finishing stage nr " + stageCounter);
             if (stageCounter < vm.lesson["stages"].length - 1) {
                 stageCounter++;
                 setCurrentStage();
             } else {
 
-                // TODO: finishLesson
+                // TODO: finishLesson - sens zmiennej vm.finished
                 vm.finished = true;
+                $log.info("[Lesson " + vm.lessonNo +  "] Finishing lesson \"" + vm.lesson.title + "\".");
 
                 storageService.setCurrentLesson(vm.lessonNo + 1);
                 storageService.setLessonAsFinished(vm.lessonNo);
@@ -198,6 +212,7 @@
         }
 
         // -------------------------------------------------------------
+        // TODO: Wypada przemyśleć, jak sprawdzać poprawność oczekiwanych komend (zwłaszcza git commit, który może mieć dowolny tekst jako message"
         function isExpectedCommand(command) {
             return (vm.currentStage["command"] === command);
         }

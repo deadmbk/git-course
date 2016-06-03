@@ -43,8 +43,24 @@ function createFile($filename, $content) {
 
 function executeGitCommand($requestCommand) {
 
-    $command = replaceFirstOccurrence($requestCommand, 'git');
-    return shell_exec($command . " 2>&1");
+    $output = array();
+    $result = array();
+    $returnVar;
+
+    $command = replaceFirstOccurrence(escapeshellcmd($requestCommand), 'git')  . " 2>&1";
+    exec($command, $output, $returnVar);
+
+    $result['command'] = $requestCommand;
+    $result['output'] = implode("\n", $output);
+    $result['exitCode'] = $returnVar;
+
+//    print '<pre>';
+//    print_r($output);
+//    print '</pre>';
+//
+//    print 'ReturnVar: ' . $returnVar;
+
+    return $result;//shell_exec($command . " 2>&1");
 
 }
 
@@ -57,3 +73,5 @@ function replaceFirstOccurrence($haystack, $needle) {
 
     return $haystack;
 }
+
+?>
