@@ -17,12 +17,12 @@
         // TODO: courseController powinien zajmować się logiką związaną z całym kursem (zmienne lessonCount i courseFinished), a nie lessonController
 
         vm.courseFinished = false;
-        vm.lesson = {};                             // obiekt z lekcją
-        vm.lessonNo = parseInt($routeParams.id);    // numer lekcji pobrany z adresu TODO: walidacja
-        vm.lessonCount;
         vm.currentStage = {};                       // obiekt zawierający aktywny etap lekcji
         vm.finished = false;                        // czy lekcja została zakończona? Powinno odblokować przycisk do przejścia dalej
         vm.isLast = false;                          // czy jest to ostatnia lekcja kursu
+        vm.lesson = {};                             // obiekt z lekcją
+        vm.lessonNo = parseInt($routeParams.id);    // numer lekcji pobrany z adresu TODO: walidacja
+        vm.lessonCount;
 
         vm.finish = finishCourse;
         vm.reset = resetCourse;
