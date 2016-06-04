@@ -102,7 +102,7 @@
                 } else {
 
                     sendToOutput(data.output);
-                    if (isExpectedCommand(data.command)) {
+                    if (!vm.finished && isExpectedCommand(data.command)) {
                         finishStage();
                     }
                 }
@@ -201,10 +201,13 @@
                 vm.finished = true;
                 $log.info("[Lesson " + vm.lessonNo +  "] Finishing lesson \"" + vm.lesson.title + "\".");
 
-                storageService.setCurrentLesson(vm.lessonNo + 1);
+
                 storageService.setLessonAsFinished(vm.lessonNo);
 
                 vm.courseFinished = isCourseFinished();
+                if (!vm.isLast) {
+                    storageService.setCurrentLesson(vm.lessonNo + 1);
+                }
 
                 lessonFinishedInfo();
             }
@@ -212,28 +215,43 @@
         }
 
         // -------------------------------------------------------------
-        // TODO: Wypada przemyśleć, jak sprawdzać poprawność oczekiwanych komend (zwłaszcza git commit, który może mieć dowolny tekst jako message"
+        function ifValueExistsIn(variable, value) {
+
+            if (variable == null) {
+                return false;
+            } else {
+
+                if (variable.constructor === Array) {
+                    return (variable.indexOf(value) !== -1);
+                } else {
+                    return (variable === value);
+                }
+
+            }
+        }
+
+        // -------------------------------------------------------------
+        // TODO: Przypadek z git commit, który może mieć dowolny tekst jako message"
         function isExpectedCommand(command) {
-            return (vm.currentStage["command"] === command);
+
+            if (vm.currentStage.hasOwnProperty("command")) {
+                return ifValueExistsIn(vm.currentStage["command"], command);
+            } else {
+                $log.error('Missing or invalid \'command\' property of stage object detected.');
+                return false;
+            }
+
         }
 
         // -------------------------------------------------------------
         function isValidCommand(command) {
-
-            if (vm.currentStage.hasOwnProperty("availableCommands") && vm.currentStage["availableCommands"].constructor === Array) {
-
-                var commands = vm.currentStage["availableCommands"];
-                for (var aCommand in commands) {
-                    if (commands[aCommand] === command) {
-                        return true;
-                    }
-                }
-
-                return false;
+            
+            if (isExpectedCommand(command)) {
+                return true;
             }
 
-            $log.error('Missing or invalid \'availableCommands\' property of stage object detected.');
-            return false;
+            return (vm.currentStage.hasOwnProperty("availableCommands")
+                    && ifValueExistsIn(vm.currentStage["availableCommands"], command));
         }
 
         // -------------------------------------------------------------
