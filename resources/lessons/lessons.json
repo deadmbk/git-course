@@ -1,49 +1,267 @@
 [
   {
     "id": 1,
-    "title": "Initializing your git project",
+    "title": "Cofigure your environment",
     "stages": [
       {
-        "command": "git init",
-        "description": "Lorem ipsum dolor sit amet",
-        "tooltip": "",
-        "error": "Please use git init command",
+        "command": "git config",
+        "availableCommands": ["git config --global user.email \"you@example_email.com\""],
+        "description": "Zanim zaczniesz pracę z projektem musisz skonfigurowac git-a tak aby wiadomo było kto wprowadza zmiany do prjektu. Zrobimy to ustawiając email oraz nazwę usera za pomocą komendy 'config'. Najpierw Zaczniemy od ustawienia adresu e-mail. Użyj komendy config w celu wprowadzenia email-a",
+        "tooltip": "Użyj polecenia 'git config --global user.email \"you@example_email.com\"'",
+        "error": "Please use 'git config --global user.email \"you@example_email.com\"!",
         "prerequisites": ["lesson1"]
       },
-      {
-        "command": "git status",
-        "availableCommands": "git log",
-        "description": "Aenean eleifend, libero nec vulputate dapibus, lacus enim scelerisque odio, bibendum dapibus orci massa et nulla",
-        "tooltip": "",
-        "error": "dsadsa"
+	  {
+        "command": "git config",
+        "availableCommands": ["git config --global user.name \"your_name\""],
+        "description": "Po ustawieniu e-maila przechodzimy do wpisania nazwy użytkownika. Należy teraz wykorzystać komendę config tak aby wprowadzić nazwę użytkownika Git",
+        "tooltip": "Wywołaj polecenie 'git config --global user.name \"your_name\"' aby ustawić nazwę użytkownika",
+        "error": "Please use 'git config --global user.name \"your_name\"' command!"
       }
     ]
   },
   {
     "id": 2,
+    "title": "Call for help!",
+    "stages": [
+      {
+        "command": "git help",
+        "availableCommands": ["git help", "git --help"],
+        "description": "Help pozwala na znalezienie informacji i opisu na temat komend użwanych w programie. Jeśli nie podamy żadnej konkretnej komedy odnośnie której chcemy uzuskać informację to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend",
+        "tooltip": "Wywołaj polecenie 'git help' aby wyświetlić informacje na temat dostępnej pomocy.",
+        "error": "Please use 'git help' command!",
+        "prerequisites": ["lesson2"]
+      },
+	  {
+        "command": "git help status",
+        "availableCommands": ["git help status"],
+        "description": "Help pozwala na znalezienie informacji i opisu na temat komend użwanych w programie. Jeśli nie podamy żadnej konkretnej komedy odnośnie której chcemy uzuskać informację to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend",
+        "tooltip": "Wywołaj polecenie 'git help status' aby wyświetlić informacje na temat dostępnej pomocy w programie odnośnie komendy 'status'",
+        "error": "Please use 'git help status' command!"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Initializing your git project",
+    "stages": [
+      {
+        "command": "git init",
+        "availableCommands": ["git init"],
+        "description": "Komenda 'init' powoduje założenie nowego projektu w folderze w którym aktualnie się znajdujemy i śledzenie zmian w tym folderze przez narzędzie Git",
+        "tooltip": "Użyj komendy 'git init' aby zainicjalizować nowy projekt git",
+        "error": "Please use 'git init' command",
+        "prerequisites": ["lesson3"]
+      },
+      {
+        "command": "git status",
+        "availableCommands": ["git status", "git log"],
+        "description": "Komenda status powoduje wyświetlenie informacji na temat zmian w aktywnym folderze",
+        "tooltip": "Użyj polecenia 'git status' aby sprawdzić status",
+        "error": "Please use 'git status' command!"
+      }
+    ]
+  },
+  {
+    "id": 4,
     "title": "Your first commit",
     "stages": [
       {
         "command": "git status",
-        "availableCommands": "git log",
-        "description": "Dodaliśmy nowy plik tekstowy do Twojego repozytorium o nazwie document.txt. Użyj poznanej wcześniej komendy 'git status', żeby dowiedzieć się o tym na własną rękę.",
-        "tooltip": "",
-        "error": "Please use git init command",
-        "prerequisites": ["lesson2"]
+        "availableCommands": ["git status"],
+        "description": "Dodaliśmy nowy plik tekstowy do Twojego repozytorium o nazwie document.txt. żeby dowiedzieć się o tym na własną rękę użyj komendy 'status'. Wyświetlny zostanie stan aktualnie śledzonego projektu. Będzie to lista plików gotowych do zacommitowania oraz informacje o tym które pliki nie są jeszcze śledzone.",
+        "tooltip": "Użyj poznanej wcześniej komendy 'git status'",
+        "error": "Please use git status command",
+        "prerequisites": ["lesson4"]
       },
       {
-        "command": ["git add *.txt", "git add *", "git add document.txt"],
-        "availableCommands": ["git status", "git log"],
-        "description": "Jak widzisz, Git nie śledzi zmian dokonanych w obrębie tego pliku. Musimy zmienić to zachowanie przez dodanie go do repo przez komendę git add nazwa_pliku.",
-        "tooltip": "",
-        "error": "dsadsa"
+        "command": "git add document.txt",
+        "availableCommands": ["git add document.txt"],
+        "description": "Jak widzisz, Git nie śledzi zmian dokonanych w obrębie pliku 'document.txt'. Musimy zmienić to zachowanie przez dodanie go do repozytorium poprzez komendę git add nazwa_pliku.",
+        "tooltip": "Użyj komendy 'git add document.txt' aby spowodować że nowy plik 'document.txt' będzie od tej pory śledzony przez narzędzie Git",
+        "error": "Please use 'git add document.txt' command"
       },
       {
         "command": "git status",
-        "availableCommands": ["git log"],
+        "availableCommands": ["git status"],
         "description": "Świetnie! Teraz wywołaj ponownie 'git status', żeby sprawdzić czy wszystko przebiegło w porządku.",
-        "tooltip": "",
-        "error": "dsadsa"
+        "tooltip": "Użyj komendy 'git status'",
+        "error": "Please use 'git status' command"
+      },
+	  {
+        "command": "git commit",
+        "availableCommands": ["git commit -m \"first commit\""],
+        "description": "Skoro plik 'document.txt' został dodany do śledzenia nastąpił czas aby zacommitować zmiany wprowadzone w projekcie... Służy do tego komenda 'commit'",
+        "tooltip": "Użyj komendy 'git commit -m \"first commit\"'",
+        "error": "Please use 'git commit -m \"first commit\"' command"
+      },
+	  {
+        "command": "git status",
+        "availableCommands": ["git status"],
+        "description": "Teraz należy sprawdzić czy plik został zacommitowany.Ponownie wykonajmy polecenie status'",
+        "tooltip": "Użyj komendy 'git status",
+        "error": "Please use 'git status' command"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Commit some more changes!",
+    "stages": [
+      {
+        "command": "git status",
+        "availableCommands": ["git status"],
+        "description": "Aktualnie wprowadziliśmy do projektu kilka zmian... Zostały dodane dodatkowe pliki A.txt, B.txt oraz C.txt które nie są śledzone oraz zmieniła się także zawartość pliku 'document.txt'. Wywołaj teraz polecenei 'status' aby przekonać się że zmainy faktycznie miały miejsce.",
+        "tooltip": "Użyj komendy 'git status'",
+        "error": "Please use 'git status' command!",
+        "prerequisites": ["lesson5"]
+      },
+	  {
+        "command": "git add -A",
+        "availableCommands": ["git add -A"],
+        "description": "Ponieważ przekonałeś się że pliki uległy zmianie... Należy teraz dodać je do projektu oraz zatwierdzić zmiany. Używamy do tego p raz kolejny komendy add tym razem z opcją -A aby dodać wszystkie zmiany na raz bez konieczności wypisywania po kolei wszystkich plików.",
+        "tooltip": "Użyj komendy 'git add -A",
+        "error": "Please use 'git add -A' command"
+      },
+	  {
+        "command": "git commit -m \"second commit\"",
+        "availableCommands": ["git commit -m \"second commit\""],
+        "description": "Zatwiedzone zmiany commitujemy dzieki komendzie 'commit'",
+        "tooltip": "Użyj komendy 'git commit -m \"second commit\"",
+        "error": "Please use 'git commit' command"
+      },
+	  {
+        "command": "git status",
+        "availableCommands": ["git status"],
+        "description": "Aby sprawdzić czy wszystko się powiodło wywołujemy po raz kolejny komendę 'status'",
+        "tooltip": "Użyj komendy 'git status'",
+        "error": "Please use 'git status' command!"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Show me log",
+    "stages": [
+      {
+        "command": "git log",
+        "availableCommands": ["git log"],
+        "description": "Ponieważ w naszym projekcie może uczestniczyć wiele osób i wiele z nich może do niego dodawać zawartość istnieje narzędzie które pozwala sprawdzić listę zmian związanych z projektem. Użyjemy teraz komendy 'log' która wylistuje nasze commity.",
+        "tooltip": "Użyj komendy 'git log'",
+        "error": "Please use 'git log' command",
+        "prerequisites": ["lesson6"]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Stop and reverse",
+    "stages": [
+      {
+        "command": "git status",
+        "availableCommands": ["git status"],
+        "description": "Czasem może zdarzyć się że nie chcemy commitować pewnych zmian i pasowałoby usunąć je z kolejnej zmiany... służy do tego komenda 'checkout'. Aktualnie zmieniły się w projekcie jeden z plików i został dodany do zmiany za pomocą komendy 'add'. Sprawdź czy plik faktycznie został zmodyfikowany wykorzystując polecenie 'status'.",
+        "tooltip": "Użyj komendy 'git status'",
+        "error": "Please use git status command",
+        "prerequisites": ["lesson7"]
+      },
+	  {
+        "command": "git checkout",
+        "availableCommands": ["git status"],
+        "description": "wiedząc że plik jest zakwalifikowany do przyszłego commit-a wykorzystaj komendę 'checkout aby przywrócić zmiany wprowadzone w pliku i nie wysyłać go do repozytorium w przyszłym commicie",
+        "tooltip": "Użyj komendy 'git checkout document.txt'",
+        "error": "Please use 'git checkout' command!"
+      },
+	  {
+        "command": "git status",
+        "availableCommands": ["git status"],
+        "description": "Możesz teraz sprawdzić za pomocą komendy status czy plik faktycznie został usunięty z listy",
+        "tooltip": "Użyj komendy 'git status'",
+        "error": "Please use git status command"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Remote repository",
+    "stages": [
+      {
+        "command": "git remote",
+        "availableCommands": ["git remote"],
+        "description": "Aby dodać zewnętrzne repozytorium używamy komendy remote add <nazwa> <url>/<directory>",
+        "tooltip": "Użyj komendy 'git remote add origin \"/d/git-repo\"'",
+        "error": "Please use git status command",
+        "prerequisites": ["lesson8"]
+      },
+	  {
+        "command": "git remote",
+        "availableCommands": ["git remote -v"],
+        "description": "Po wywołaniu poprzedniej komendy możemy sprawdzić powodzenie operacji poprzez wylistowanie listy repozytoriów. Użyj do tego komendy remote z odpowiednią opcją",
+        "tooltip": "Użyj komendy 'git remote -v'",
+        "error": "Please use 'git remote -v' command!"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Pull some data from repository",
+    "stages": [
+      {
+        "command": "git status",
+        "availableCommands": ["git status"],
+        "description": "W tej lekcji pobierzemy dane z repozytorium dodanego w poprzedniej lekcji... Najpierw jednak aby zaobserwować zmiany sprawdzimy aktualny stan folderu za pomocą komendy 'status'.",
+        "tooltip": "Użyj komendy 'git remote add origin \"/d/git-repo\"'",
+        "error": "Please use git status command",
+        "prerequisites": ["lesson9"]
+      },
+	  {
+        "command": "git pull",
+        "availableCommands": ["git pull origin"],
+        "description": "W tym momencie pobierzemy nowe pliki znajdujące się w repozytorim zdalnym. Do tego wykorzystujemy komendę pull podając nazwę repozytoriium z którego chcemy pobrać dane (dodane w poprzedniej lekcji)",
+        "tooltip": "Użyj komendy 'git pull origin'",
+        "error": "Please use 'git pull origin' command!"
+      },
+	  {
+        "command": "git status",
+        "availableCommands": ["git status"],
+        "description": "Sprawdzamy za pomocą komendy status czy nowe pliki pojawiły się w folderze",
+        "tooltip": "Użyj komendy 'git status'",
+        "error": "Please use 'git status' command"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Push some data to the remote repository",
+    "stages": [
+	  {
+        "command": "git status",
+        "availableCommands": ["git status"],
+        "description": "W dokumencie 'ocument.txt' nastąpiły pewne zmiany które chcemy przenieść do zewnętrznego repozytorium. Sprawdź czy faktycznie nastapiły zmiany wykorzystując komendę 'status'",
+        "tooltip": "Użyj komendy 'git status'",
+        "error": "Please use git status command",
+        "prerequisites": ["lesson10"]
+      },
+      {
+        "command": "git add",
+        "availableCommands": ["git add -A", "git add document.txt"],
+        "description": "Dodaj wszystkie zmienione pliki (document.txt) do następnej zmiany",
+        "tooltip": "Użyj komendy 'git remote add origin \"/d/git-repo\"'",
+        "error": "Please use 'git add' command"
+      },
+      {
+        "command": "git commit",
+        "availableCommands": ["git commit -m \"third commit\""],
+        "description": "Zrób commit zmian wywołując polecenie commit",
+        "tooltip": "Użyj komendy 'git commit -m \"third commit\"",
+        "error": "Please use 'git commit' command"
+      },
+      {
+        "command": "git push",
+        "availableCommands": ["git push"],
+        "description": "Dodajemy zmiany w zewnętrzym repozytorium za pomocą komendy push",
+        "tooltip": "Użyj komendy 'git push'",
+        "error": "Please use 'git push' command!"
       }
     ]
   }

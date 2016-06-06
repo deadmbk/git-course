@@ -1,0 +1,69 @@
+Lekcja1
+Cofigure your environment
+- git config --global user.email "you@example_email.com"
+- git config --global user.name "Your Name"
+
+Problem: nie przechodzi do następnej lekcji... najprawodobniej problem jest z \"
+
+Lekcja2:
+Call for help
+- git help
+- git help komenda
+
+Lekcja3:
+Initializing your git project
+- git init
+- git status
+
+Lekcja4:
+Your first commit
+Prerekwizyty: (zostaje dodany nowy dokument document.txt)
+- git status (aby zobaczyć że nie jest śledzony)
+- git add document.txt (dodanie do śledzenia)
+- git status (aby zobaczyc że jest śledzony).
+- git commit -m "first commit".
+- git status (sprawdzić czy zacommitowane).
+
+Lekcja5
+Commit some more changes!
+Prerekwizyty: Trzeba dodać kilka nowych plików i zmodyfikować istniejący
+- git status (żeby zobaczyć że są nieśledzone i zmienione pliki)
+- git add -all (dodanie wszystkich plików).
+- git commit -m "second commit". (commit)
+- git status (sprawdzenie czy są zacommitowane).
+
+Lekcja6:
+Show me log
+(Pokaże listę commitów)
+-- pokazanie loga z commitów:
+- git log
+
+
+Lekcja7:
+Stop and Reverse!
+(Odwracanie zmian- checkout):
+Prerekwizyty: Trzeba zmienić plik i wywołać git add.
+- git status (żeby zobaczyć że są jakieś zmiany gotowe do commit-u)
+- git checkout document.txt	(usunąć modyfikacje)
+- git status 
+
+Lekcja8:
+Remote repository
+Prerekwizyty: drugi folder stanowiący zewnętrzne repozytorium... z zainicjowanym projektem.
+- git remote add origin "/d/git-repo" (doda zewnętrzne repozytorium)
+- git remote -v (wyświetlenie listy repozytoriów)
+
+Lekcja9:
+Pull some data from repository.
+Prerekwizyty: dodać kilka plików do git-repo
+- git status (zobaczyć stan aktualny)
+- git pull origin master (pobranie zmian z git-repo)
+- git status (zobaczyć czy pliki faktycznie się pojawiły)
+
+Lekcja10:
+Push some data to the remote repository.
+Prerekwizyty: zmienić pliki w folderze np dokument.txt
+- git status (zobaczyć że są zmiany)
+- git add document.txt (dodać do zmiany)
+- git commit -m "third commit"
+- git push origin (wypchnięcie zmian do repozytorium) (tylko pasuje to sprawdzić)
