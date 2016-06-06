@@ -1,19 +1,17 @@
 [
   {
     "id": 1,
-    "title": "Cofigure your environment",
+    "title": "Konfiguracja środowiska",
     "stages": [
       {
-        "command": "git config",
-        "availableCommands": ["git config --global user.email \"you@example_email.com\""],
+        "command": "git config --global user.email \"you@example_email.com\"",
         "description": "Zanim zaczniesz pracę z projektem musisz skonfigurowac git-a tak aby wiadomo było kto wprowadza zmiany do prjektu. Zrobimy to ustawiając email oraz nazwę usera za pomocą komendy 'config'. Najpierw Zaczniemy od ustawienia adresu e-mail. Użyj komendy config w celu wprowadzenia email-a",
         "tooltip": "Użyj polecenia 'git config --global user.email \"you@example_email.com\"'",
         "error": "Please use 'git config --global user.email \"you@example_email.com\"!",
         "prerequisites": ["lesson1"]
       },
 	  {
-        "command": "git config",
-        "availableCommands": ["git config --global user.name \"your_name\""],
+        "command": "git config --global user.name \"your_name\"",
         "description": "Po ustawieniu e-maila przechodzimy do wpisania nazwy użytkownika. Należy teraz wykorzystać komendę config tak aby wprowadzić nazwę użytkownika Git",
         "tooltip": "Wywołaj polecenie 'git config --global user.name \"your_name\"' aby ustawić nazwę użytkownika",
         "error": "Please use 'git config --global user.name \"your_name\"' command!"
@@ -22,11 +20,10 @@
   },
   {
     "id": 2,
-    "title": "Call for help!",
+    "title": "Wezwanie pomocy!",
     "stages": [
       {
-        "command": "git help",
-        "availableCommands": ["git help", "git --help"],
+        "command": ["git help", "git --help"],
         "description": "Help pozwala na znalezienie informacji i opisu na temat komend użwanych w programie. Jeśli nie podamy żadnej konkretnej komedy odnośnie której chcemy uzuskać informację to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend",
         "tooltip": "Wywołaj polecenie 'git help' aby wyświetlić informacje na temat dostępnej pomocy.",
         "error": "Please use 'git help' command!",
@@ -34,7 +31,7 @@
       },
 	  {
         "command": "git help status",
-        "availableCommands": ["git help status"],
+        "availableCommands": ["git help", "git --help"],
         "description": "Help pozwala na znalezienie informacji i opisu na temat komend użwanych w programie. Jeśli nie podamy żadnej konkretnej komedy odnośnie której chcemy uzuskać informację to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend",
         "tooltip": "Wywołaj polecenie 'git help status' aby wyświetlić informacje na temat dostępnej pomocy w programie odnośnie komendy 'status'",
         "error": "Please use 'git help status' command!"
@@ -43,11 +40,11 @@
   },
   {
     "id": 3,
-    "title": "Initializing your git project",
+    "title": "Inicjalizacja projektu",
     "stages": [
       {
         "command": "git init",
-        "availableCommands": ["git init"],
+        "availableCommands": ["git help init", "git --help init"],
         "description": "Komenda 'init' powoduje założenie nowego projektu w folderze w którym aktualnie się znajdujemy i śledzenie zmian w tym folderze przez narzędzie Git",
         "tooltip": "Użyj komendy 'git init' aby zainicjalizować nowy projekt git",
         "error": "Please use 'git init' command",
@@ -55,7 +52,7 @@
       },
       {
         "command": "git status",
-        "availableCommands": ["git status", "git log"],
+        "availableCommands": ["git help status", "git --help status"],
         "description": "Komenda status powoduje wyświetlenie informacji na temat zmian w aktywnym folderze",
         "tooltip": "Użyj polecenia 'git status' aby sprawdzić status",
         "error": "Please use 'git status' command!"
@@ -64,40 +61,40 @@
   },
   {
     "id": 4,
-    "title": "Your first commit",
+    "title": "Twój pierwszy commit",
     "stages": [
       {
         "command": "git status",
-        "availableCommands": ["git status"],
+        "availableCommands": ["git help status", "git --help status"],
         "description": "Dodaliśmy nowy plik tekstowy do Twojego repozytorium o nazwie document.txt. żeby dowiedzieć się o tym na własną rękę użyj komendy 'status'. Wyświetlny zostanie stan aktualnie śledzonego projektu. Będzie to lista plików gotowych do zacommitowania oraz informacje o tym które pliki nie są jeszcze śledzone.",
         "tooltip": "Użyj poznanej wcześniej komendy 'git status'",
         "error": "Please use git status command",
         "prerequisites": ["lesson4"]
       },
       {
-        "command": "git add document.txt",
-        "availableCommands": ["git add document.txt"],
+        "command": ["git add document.txt", "git add *.txt", "git add *"],
+        "availableCommands": ["git help add", "git --help add", "git status"],
         "description": "Jak widzisz, Git nie śledzi zmian dokonanych w obrębie pliku 'document.txt'. Musimy zmienić to zachowanie przez dodanie go do repozytorium poprzez komendę git add nazwa_pliku.",
         "tooltip": "Użyj komendy 'git add document.txt' aby spowodować że nowy plik 'document.txt' będzie od tej pory śledzony przez narzędzie Git",
         "error": "Please use 'git add document.txt' command"
       },
       {
         "command": "git status",
-        "availableCommands": ["git status"],
+        "availableCommands": ["git help status", "git --help status"],
         "description": "Świetnie! Teraz wywołaj ponownie 'git status', żeby sprawdzić czy wszystko przebiegło w porządku.",
         "tooltip": "Użyj komendy 'git status'",
         "error": "Please use 'git status' command"
       },
 	  {
-        "command": "git commit",
-        "availableCommands": ["git commit -m \"first commit\""],
+        "command": "git commit -m \"first commit\"",
+        "availableCommands": ["git help commit", "git --help commit"],
         "description": "Skoro plik 'document.txt' został dodany do śledzenia nastąpił czas aby zacommitować zmiany wprowadzone w projekcie... Służy do tego komenda 'commit'",
         "tooltip": "Użyj komendy 'git commit -m \"first commit\"'",
         "error": "Please use 'git commit -m \"first commit\"' command"
       },
 	  {
         "command": "git status",
-        "availableCommands": ["git status"],
+        "availableCommands": ["git help status", "git --help status"],
         "description": "Teraz należy sprawdzić czy plik został zacommitowany.Ponownie wykonajmy polecenie status'",
         "tooltip": "Użyj komendy 'git status",
         "error": "Please use 'git status' command"
@@ -106,7 +103,7 @@
   },
   {
     "id": 5,
-    "title": "Commit some more changes!",
+    "title": "Wprowadź więcej zmian!",
     "stages": [
       {
         "command": "git status",
@@ -141,7 +138,7 @@
   },
   {
     "id": 6,
-    "title": "Show me log",
+    "title": "Pokaż mi logi",
     "stages": [
       {
         "command": "git log",
@@ -183,7 +180,7 @@
   },
   {
     "id": 8,
-    "title": "Remote repository",
+    "title": "Zdalne repozytorium",
     "stages": [
       {
         "command": "git remote",
@@ -204,7 +201,7 @@
   },
   {
     "id": 9,
-    "title": "Pull some data from repository",
+    "title": "Pobranie danych z repozytorium",
     "stages": [
       {
         "command": "git status",
@@ -232,7 +229,7 @@
   },
   {
     "id": 10,
-    "title": "Push some data to the remote repository",
+    "title": "Wysyłanie własnych zmian",
     "stages": [
 	  {
         "command": "git status",
