@@ -2,17 +2,12 @@
 require '../common/functions.php';
 header('Content-type', 'application/json; charset=utf-8');
 
-setWorkspace();
+setWorkspace(COURSE_DIR);
 
 $requestCommand = trim(stripslashes($_GET['cmd']));
 
-$result = executeGitCommand($requestCommand);
+$result = executeCommand($requestCommand);
 print json_encode($result);
-
-//    print '<pre>' . $requestCommand . '</pre>';
-//    print '<pre>' . escapeshellcmd($requestCommand) . '</pre>';
-//    print '<pre>' . replaceFirstOccurrence($requestCommand, 'git') . '</pre>';
-//    print '<pre>' . escapeshellcmd(replaceFirstOccurrence($requestCommand, 'git')) . '</pre>';
 
 //    print '<pre>';
 //    print $var;
@@ -27,15 +22,5 @@ print json_encode($result);
 //    print "<br>";
 //    print utf8_encode($var);;
 //    print '</pre>';
-
-//$response = array();
-//$response['command'] = $requestCommand;
-//$response['output'] = $result;
-//
-////    print '<pre>';
-////    print_r($response);
-////    print '</pre>';
-//
-//print json_encode($response);
 
 ?>

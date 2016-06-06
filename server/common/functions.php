@@ -21,27 +21,28 @@ function delete_directory($dir) {
         rmdir($dir);
 
     } catch(UnexpectedValueException $e) {
-       //print "Provided path does not exist or is not directory.";
     }
 
 }
 
-function resetWorkspace() {
-    delete_directory(COURSE_DIR);
+function resetWorkspace($workspace) {
+    delete_directory($workspace);
 
-    mkdir(COURSE_DIR);
-    chmod(COURSE_DIR, 0777);
+    if (mkdir($workspace)) {
+        chmod($workspace, 0777);
+    }
+
 }
 
-function setWorkspace() {
-    chdir(COURSE_DIR);
+function setWorkspace($workspace) {
+    chdir($workspace);
 }
 
 function createFile($filename, $content) {
     return file_put_contents($filename, $content);
 }
 
-function executeGitCommand($requestCommand) {
+function executeCommand($requestCommand) {
 
     $output = array();
     $result = array();
@@ -54,14 +55,7 @@ function executeGitCommand($requestCommand) {
     $result['output'] = implode("\n", $output);
     $result['exitCode'] = $returnVar;
 
-//    print '<pre>';
-//    print_r($output);
-//    print '</pre>';
-//
-//    print 'ReturnVar: ' . $returnVar;
-
-    return $result;//shell_exec($command . " 2>&1");
-
+    return $result;
 }
 
 function replaceFirstOccurrence($haystack, $needle) {

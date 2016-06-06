@@ -5,7 +5,7 @@ require '../common/functions.php';
 /////// Lesson 1 workspace set ///////
 //////////////////////////////////////
 
-resetWorkspace();
-setWorkspace();
+resetWorkspace(COURSE_DIR);
+setWorkspace(COURSE_DIR);
 
 ?>

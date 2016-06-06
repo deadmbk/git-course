@@ -8,7 +8,7 @@ require 'lesson1.php';
 $name = "document.txt";
 $data = "This is a text file used to teach people how to properly add and commit files.";
 
-executeGitCommand("git init");
+executeCommand("git init");
 
 createFile($name, $data);
 
