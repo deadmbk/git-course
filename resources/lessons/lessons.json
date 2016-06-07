@@ -5,16 +5,16 @@
     "stages": [
       {
         "command": "git config --global user.email \"you@example_email.com\"",
-        "description": "Zanim zaczniesz pracę z projektem musisz skonfigurowac git-a tak aby wiadomo było kto wprowadza zmiany do projektu. Zrobimy to ustawiając email oraz nazwę usera za pomocą komendy 'config'. Najpierw Zaczniemy od ustawienia adresu e-mail. Użyj komendy config w celu wprowadzenia email-a",
+        "description": "Zanim zaczniesz pracę z projektem musisz skonfigurować gita, tak aby wiadomo było kto wprowadza zmiany. Zrobimy to ustawiając email oraz nazwę użytkownika za pomocą komendy \"git config\". Zaczniemy od ustawienia adresu email. Użyj komendy \"git config\" w celu wprowadzenia adresu: you@example_email.com",
         "tooltip": "Użyj polecenia 'git config --global user.email \"you@example_email.com\"'",
-        "error": "Please use 'git config --global user.email \"you@example_email.com\"' command!",
+        "error": "Użyj polecenia 'git config --global user.email \"you@example_email.com\"'!",
         "prerequisites": ["lesson1"]
       },
 	  {
         "command": "git config --global user.name \"your_name\"",
-        "description": "Po ustawieniu e-maila przechodzimy do wpisania nazwy użytkownika. Należy teraz wykorzystać komendę config tak aby wprowadzić nazwę użytkownika Git",
-        "tooltip": "Wywołaj polecenie 'git config --global user.name \"your_name\"' aby ustawić nazwę użytkownika",
-        "error": "Please use 'git config --global user.name \"your_name\"' command!"
+        "description": "Po ustawieniu adresu email przechodzimy do wpisania nazwy użytkownika. Należy teraz wykorzystać komendę \"git config\", tak aby wprowadzić nazwę użytkownika: your_name",
+        "tooltip": "Wywołaj polecenie 'git config --global user.name \"your_name\"', aby ustawić nazwę użytkownika",
+        "error": "Użyj polecenia 'git config --global user.name \"your_name\"'!"
       }
     ]
   },
