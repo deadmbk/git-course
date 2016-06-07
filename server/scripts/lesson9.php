@@ -5,10 +5,8 @@ require 'lesson8.php';
 /////// Lesson 9 workspace set ///////
 //////////////////////////////////////
 
-$clientPath = "D:\git-course-repo\git-client";
-
-resetWorkspace($clientPath);
-setWorkspace($clientPath);
+resetWorkspace(CLIENT_DIR);
+setWorkspace(CLIENT_DIR);
 
 executeCommand("git clone " . REPO_DIR . " .");
 createFile("newFile.txt", "Nothing to see here..");
