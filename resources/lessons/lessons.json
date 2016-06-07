@@ -271,14 +271,34 @@
   },
   {
     "id": 11,
-    "title": "[GIT FLOW] Inicjowanie repozytorium",
+    "title": "[GIT FLOW] Inicjowanie GIT FLOW",
     "stages": [
       {
-        "command": "git flow init",
-        "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log", "git flow init"],
-        "description": "Aby zainicjować git flow w aktualnym folderze należy wykonać polecenie 'git flow init'",
-        "tooltip": "Użyj komendy 'git flow init'",
-        "error": "Wywołaj polecenie 'git flow init'!"
+        "command": "git flow init -d",
+        "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log", "git flow init -d"],
+        "description": "Aby zainicjować git flow w aktualnym folderze należy wykonać polecenie 'git flow init -d'",
+        "tooltip": "Użyj komendy 'git flow init -d'",
+        "error": "Wywołaj polecenie 'git flow init -d'!"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "[GIT FLOW] Feature branch",
+    "stages": [
+      {
+        "command": "git flow feature start feature/1",
+        "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log", "git flow feature start feature/1"],
+        "description": "Tworzenie nowych funkcjonalności w projekcie ułatwią nam tzw. \"feature branche\", na których będziemy umieszczać nasze zmiany. Feature branch tworzy się poleceniem 'git flow feature start [nazwa brancha]', które tworzy go na bazie brancha develop i od razu się do niego przełącza",
+        "tooltip": "Użyj komendy 'git flow feature start feature/1'",
+        "error": "Wywołaj polecenie 'git flow feature start feature/1'!"
+      },
+      {
+        "command": "git flow feature finish feature/1",
+        "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log", "git flow feature start feature/1"],
+        "description": "Po zakończeniu dewelopowania funkcjonalności, branch powinien zostać zmergowany do brancha develop i usunięty. Można to osiągnąć dzięki komendzie 'git flow feature start [nazwa brancha]'",
+        "tooltip": "Użyj komendy 'git flow feature finish feature/1'",
+        "error": "Wywołaj polecenie 'git flow feature finish feature/1'!"
       }
     ]
   }
