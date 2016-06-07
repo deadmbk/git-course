@@ -275,10 +275,11 @@
     "stages": [
       {
         "command": "git flow init -d",
-        "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log", "git flow init -d"],
+        "availableCommands": ["git flow init help", "git flow init --help", "git remote -v", "git log", "git status"],
         "description": "Aby zainicjować git flow w aktualnym folderze należy wykonać polecenie 'git flow init -d'",
         "tooltip": "Użyj komendy 'git flow init -d'",
-        "error": "Wywołaj polecenie 'git flow init -d'!"
+        "error": "Wywołaj polecenie 'git flow init -d'!",
+        "prerequisites": ["lesson11"]
       }
     ]
   },
@@ -288,14 +289,15 @@
     "stages": [
       {
         "command": "git flow feature start feature/1",
-        "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log", "git flow feature start feature/1"],
+        "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
         "description": "Tworzenie nowych funkcjonalności w projekcie ułatwią nam tzw. \"feature branche\", na których będziemy umieszczać nasze zmiany. Feature branch tworzy się poleceniem 'git flow feature start [nazwa brancha]', które tworzy go na bazie brancha develop i od razu się do niego przełącza",
         "tooltip": "Użyj komendy 'git flow feature start feature/1'",
-        "error": "Wywołaj polecenie 'git flow feature start feature/1'!"
+        "error": "Wywołaj polecenie 'git flow feature start feature/1'!",
+        "prerequisites": ["lesson12"]
       },
       {
         "command": "git flow feature finish feature/1",
-        "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log", "git flow feature start feature/1"],
+        "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
         "description": "Po zakończeniu dewelopowania funkcjonalności, branch powinien zostać zmergowany do brancha develop i usunięty. Można to osiągnąć dzięki komendzie 'git flow feature finish [nazwa brancha]'",
         "tooltip": "Użyj komendy 'git flow feature finish feature/1'",
         "error": "Wywołaj polecenie 'git flow feature finish feature/1'!"
