@@ -1,0 +1,2 @@
+This is a text file used to teach people how to properly add and commit files.
+Modified content on new line.
