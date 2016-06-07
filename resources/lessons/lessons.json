@@ -296,7 +296,7 @@
       {
         "command": "git flow feature finish feature/1",
         "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log", "git flow feature start feature/1"],
-        "description": "Po zakończeniu dewelopowania funkcjonalności, branch powinien zostać zmergowany do brancha develop i usunięty. Można to osiągnąć dzięki komendzie 'git flow feature start [nazwa brancha]'",
+        "description": "Po zakończeniu dewelopowania funkcjonalności, branch powinien zostać zmergowany do brancha develop i usunięty. Można to osiągnąć dzięki komendzie 'git flow feature finish [nazwa brancha]'",
         "tooltip": "Użyj komendy 'git flow feature finish feature/1'",
         "error": "Wywołaj polecenie 'git flow feature finish feature/1'!"
       }
