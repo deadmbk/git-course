@@ -166,7 +166,7 @@
         "command": "git reset document.txt",
         "availableCommands": ["git help reset", "git --help reset", "git status", "git log"],
         "description": "Czasem może się zdarzyć, że nie chcemy commitować pewnych zmian i należy usunąć je z kolejnej zmiany. Służy do tego komenda 'git checkout'. Aktualnie zmienił się w projekcie jeden z plików i został dodany do zmiany za pomocą komendy 'git add'. Sprawdź czy plik faktycznie został zmodyfikowany wykorzystując polecenie 'git status'",
-        "tooltip": "Użyj komendy 'git reset document.txt'",
+        "tooltip": "Użyj komendy 'git reset document.txt'!",
         "error": "Wywołaj polecenie 'git reset'!"
       },
 	  {
@@ -180,7 +180,7 @@
         "command": "git status",
         "availableCommands": ["git help status", "git --help status", "git log"],
         "description": "Możesz teraz sprawdzić za pomocą komendy status czy plik faktycznie został usunięty z listy",
-        "tooltip": "Użyj komendy 'git status'",
+        "tooltip": "Użyj komendy 'git status'!",
         "error": "Wywołaj polecenie 'git status'!"
       }
     ]
@@ -192,17 +192,17 @@
       {
         "command": "git remote add origin D:/git-course-repo/git-repo",
         "availableCommands": ["git help remote", "git --help remote", "git remote -v", "git log", "git status"],
-        "description": "Aby dodać zewnętrzne repozytorium używamy komendy remote add <nazwa> <url>/<directory>",
-        "tooltip": "Użyj komendy 'git remote add origin \"/d/git-repo\"'",
-        "error": "Please use git status command",
+        "description": "Aby dodać zewnętrzne repozytorium używamy komendy 'git remote add <nazwa> <url>/<directory>'",
+        "tooltip": "Użyj komendy 'git remote add origin D:/git-course-repo/git-repo'",
+        "error": "Wywołaj polecenie 'git remote add origin D:/git-course-repo/git-repo'!",
         "prerequisites": ["lesson8"]
       },
 	  {
         "command": "git remote -v",
         "availableCommands": ["git help remote", "git --help remote", "git status", "git log"],
-        "description": "Po wywołaniu poprzedniej komendy możemy sprawdzić powodzenie operacji poprzez wylistowanie listy repozytoriów. Użyj do tego komendy remote z odpowiednią opcją",
+        "description": "Po wywołaniu poprzedniej komendy możemy sprawdzić powodzenie operacji poprzez wylistowanie listy repozytoriów. W tym celu należy użyć komendy 'git remote' z odpowiednią opcją",
         "tooltip": "Użyj komendy 'git remote -v'",
-        "error": "Please use 'git remote -v' command!"
+        "error": "Wywołaj polecenie 'git remote -v'!"
       }
     ]
   },
