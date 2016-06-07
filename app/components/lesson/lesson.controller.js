@@ -297,14 +297,14 @@
                 modalInstance.result.then(function(result) {
 
                     storageService.removeCurrentLesson();
-                    return $location.path('/');
+                    return $location.path('/finished');
 
                 });
 
             } else {
 
                 storageService.removeCurrentLesson();
-                return $location.path('/');
+                return $location.path('/finished');
 
             }
         }

@@ -39,7 +39,7 @@ function setWorkspace($workspace) {
 }
 
 function createFile($filename, $content) {
-    return file_put_contents($filename, $content);
+    return file_put_contents($filename, $content, FILE_APPEND);
 }
 
 function executeCommand($requestCommand) {
@@ -54,6 +54,10 @@ function executeCommand($requestCommand) {
     $result['command'] = $requestCommand;
     $result['output'] = implode("\n", $output);
     $result['exitCode'] = $returnVar;
+
+    //print '<pre>';
+    //print_r($result);
+    //print '</pre>';
 
     return $result;
 }

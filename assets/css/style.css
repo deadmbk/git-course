@@ -2,8 +2,15 @@ body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
-.lesson-header .desc {
+.lesson-header .desc p {
     min-height: 50px;
+    text-align: justify;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.lesson-tip p {
+    text-align: justify;
+    font-family: Tahoma, Arial, sans-serif;
 }
 
 .actions {

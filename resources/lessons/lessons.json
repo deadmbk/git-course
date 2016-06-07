@@ -107,7 +107,7 @@
     "stages": [
       {
         "command": "git status",
-        "availableCommands": ["git status"],
+        "availableCommands": ["git help status", "git --help status"],
         "description": "Aktualnie wprowadziliśmy do projektu kilka zmian... Zostały dodane dodatkowe pliki A.txt, B.txt oraz C.txt które nie są śledzone oraz zmieniła się także zawartość pliku 'document.txt'. Wywołaj teraz polecenei 'status' aby przekonać się że zmainy faktycznie miały miejsce.",
         "tooltip": "Użyj komendy 'git status'",
         "error": "Please use 'git status' command!",
@@ -115,21 +115,21 @@
       },
 	  {
         "command": "git add -A",
-        "availableCommands": ["git add -A"],
+        "availableCommands": ["git help add", "git --help add", "git status"],
         "description": "Ponieważ przekonałeś się że pliki uległy zmianie... Należy teraz dodać je do projektu oraz zatwierdzić zmiany. Używamy do tego p raz kolejny komendy add tym razem z opcją -A aby dodać wszystkie zmiany na raz bez konieczności wypisywania po kolei wszystkich plików.",
         "tooltip": "Użyj komendy 'git add -A",
         "error": "Please use 'git add -A' command"
       },
 	  {
         "command": "git commit -m \"second commit\"",
-        "availableCommands": ["git commit -m \"second commit\""],
+        "availableCommands": ["git help commit", "git --help commit", "git status"],
         "description": "Zatwiedzone zmiany commitujemy dzieki komendzie 'commit'",
         "tooltip": "Użyj komendy 'git commit -m \"second commit\"",
         "error": "Please use 'git commit' command"
       },
 	  {
         "command": "git status",
-        "availableCommands": ["git status"],
+        "availableCommands": ["git help status", "git --help status"],
         "description": "Aby sprawdzić czy wszystko się powiodło wywołujemy po raz kolejny komendę 'status'",
         "tooltip": "Użyj komendy 'git status'",
         "error": "Please use 'git status' command!"
@@ -142,7 +142,7 @@
     "stages": [
       {
         "command": "git log",
-        "availableCommands": ["git log"],
+        "availableCommands": ["git help log", "git --help log"],
         "description": "Ponieważ w naszym projekcie może uczestniczyć wiele osób i wiele z nich może do niego dodawać zawartość istnieje narzędzie które pozwala sprawdzić listę zmian związanych z projektem. Użyjemy teraz komendy 'log' która wylistuje nasze commity.",
         "tooltip": "Użyj komendy 'git log'",
         "error": "Please use 'git log' command",
@@ -156,22 +156,29 @@
     "stages": [
       {
         "command": "git status",
-        "availableCommands": ["git status"],
+        "availableCommands": ["git help status", "git --help status", "git log"],
         "description": "Czasem może zdarzyć się że nie chcemy commitować pewnych zmian i pasowałoby usunąć je z kolejnej zmiany... służy do tego komenda 'checkout'. Aktualnie zmieniły się w projekcie jeden z plików i został dodany do zmiany za pomocą komendy 'add'. Sprawdź czy plik faktycznie został zmodyfikowany wykorzystując polecenie 'status'.",
         "tooltip": "Użyj komendy 'git status'",
         "error": "Please use git status command",
         "prerequisites": ["lesson7"]
       },
+      {
+        "command": "git reset document.txt",
+        "availableCommands": ["git help reset", "git --help reset", "git status", "git log"],
+        "description": "Czasem może zdarzyć się że nie chcemy commitować pewnych zmian i pasowałoby usunąć je z kolejnej zmiany... służy do tego komenda 'checkout'. Aktualnie zmieniły się w projekcie jeden z plików i został dodany do zmiany za pomocą komendy 'add'. Sprawdź czy plik faktycznie został zmodyfikowany wykorzystując polecenie 'status'.",
+        "tooltip": "Użyj komendy 'git status'",
+        "error": "Please use git status command"
+      },
 	  {
-        "command": "git checkout",
-        "availableCommands": ["git status"],
+        "command": "git checkout document.txt",
+        "availableCommands": ["git status", "git help checkout", "git --help checkout", "git log"],
         "description": "wiedząc że plik jest zakwalifikowany do przyszłego commit-a wykorzystaj komendę 'checkout aby przywrócić zmiany wprowadzone w pliku i nie wysyłać go do repozytorium w przyszłym commicie",
         "tooltip": "Użyj komendy 'git checkout document.txt'",
         "error": "Please use 'git checkout' command!"
       },
 	  {
         "command": "git status",
-        "availableCommands": ["git status"],
+        "availableCommands": ["git help status", "git --help status", "git log"],
         "description": "Możesz teraz sprawdzić za pomocą komendy status czy plik faktycznie został usunięty z listy",
         "tooltip": "Użyj komendy 'git status'",
         "error": "Please use git status command"
@@ -183,16 +190,16 @@
     "title": "Zdalne repozytorium",
     "stages": [
       {
-        "command": "git remote",
-        "availableCommands": ["git remote"],
+        "command": "git remote add origin D:/git-course-repo/git-repo",
+        "availableCommands": ["git help remote", "git --help remote", "git remote -v", "git log", "git status"],
         "description": "Aby dodać zewnętrzne repozytorium używamy komendy remote add <nazwa> <url>/<directory>",
         "tooltip": "Użyj komendy 'git remote add origin \"/d/git-repo\"'",
         "error": "Please use git status command",
         "prerequisites": ["lesson8"]
       },
 	  {
-        "command": "git remote",
-        "availableCommands": ["git remote -v"],
+        "command": "git remote -v",
+        "availableCommands": ["git help remote", "git --help remote", "git status", "git log"],
         "description": "Po wywołaniu poprzedniej komendy możemy sprawdzić powodzenie operacji poprzez wylistowanie listy repozytoriów. Użyj do tego komendy remote z odpowiednią opcją",
         "tooltip": "Użyj komendy 'git remote -v'",
         "error": "Please use 'git remote -v' command!"
@@ -205,22 +212,22 @@
     "stages": [
       {
         "command": "git status",
-        "availableCommands": ["git status"],
+        "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log"],
         "description": "W tej lekcji pobierzemy dane z repozytorium dodanego w poprzedniej lekcji... Najpierw jednak aby zaobserwować zmiany sprawdzimy aktualny stan folderu za pomocą komendy 'status'.",
         "tooltip": "Użyj komendy 'git remote add origin \"/d/git-repo\"'",
         "error": "Please use git status command",
         "prerequisites": ["lesson9"]
       },
 	  {
-        "command": "git pull",
-        "availableCommands": ["git pull origin"],
+        "command": "git pull origin master",
+        "availableCommands": ["git remote -v", "git help pull", "git --help pull", "git status", "git log"],
         "description": "W tym momencie pobierzemy nowe pliki znajdujące się w repozytorim zdalnym. Do tego wykorzystujemy komendę pull podając nazwę repozytoriium z którego chcemy pobrać dane (dodane w poprzedniej lekcji)",
         "tooltip": "Użyj komendy 'git pull origin'",
         "error": "Please use 'git pull origin' command!"
       },
 	  {
         "command": "git status",
-        "availableCommands": ["git status"],
+        "availableCommands": ["git remote -v", "git help status", "git --help status", "git log"],
         "description": "Sprawdzamy za pomocą komendy status czy nowe pliki pojawiły się w folderze",
         "tooltip": "Użyj komendy 'git status'",
         "error": "Please use 'git status' command"
@@ -233,29 +240,29 @@
     "stages": [
 	  {
         "command": "git status",
-        "availableCommands": ["git status"],
-        "description": "W dokumencie 'ocument.txt' nastąpiły pewne zmiany które chcemy przenieść do zewnętrznego repozytorium. Sprawdź czy faktycznie nastapiły zmiany wykorzystując komendę 'status'",
+        "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log"],
+        "description": "W dokumencie 'A.txt' nastąpiły pewne zmiany które chcemy przenieść do zewnętrznego repozytorium. Sprawdź czy faktycznie nastapiły zmiany wykorzystując komendę 'status'",
         "tooltip": "Użyj komendy 'git status'",
         "error": "Please use git status command",
         "prerequisites": ["lesson10"]
       },
       {
-        "command": "git add",
-        "availableCommands": ["git add -A", "git add document.txt"],
-        "description": "Dodaj wszystkie zmienione pliki (document.txt) do następnej zmiany",
+        "command": ["git add -A", "git add A.txt", "git add *.txt", "git add *"],
+        "availableCommands": ["git add -A", "git add A.txt", "git help status", "git --help remote", "git remote -v", "git log"],
+        "description": "Dodaj wszystkie zmienione pliki (A.txt) do następnej zmiany",
         "tooltip": "Użyj komendy 'git remote add origin \"/d/git-repo\"'",
         "error": "Please use 'git add' command"
       },
       {
-        "command": "git commit",
-        "availableCommands": ["git commit -m \"third commit\""],
+        "command": "git commit -m \"Third commit\"",
+        "availableCommands": ["git help commit", "git --help commit", "git remote -v", "git status", "git log"],
         "description": "Zrób commit zmian wywołując polecenie commit",
         "tooltip": "Użyj komendy 'git commit -m \"third commit\"",
         "error": "Please use 'git commit' command"
       },
       {
-        "command": "git push",
-        "availableCommands": ["git push"],
+        "command": "git push -u origin master",
+        "availableCommands": ["git help push", "git --help push", "git remote -v", "git status", "git log"],
         "description": "Dodajemy zmiany w zewnętrzym repozytorium za pomocą komendy push",
         "tooltip": "Użyj komendy 'git push'",
         "error": "Please use 'git push' command!"

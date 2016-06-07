@@ -19,13 +19,13 @@
     <div class="col-md-4">
 
         <div class="actions">
-            <a href class="btn btn-success" ng-show="!(lessonCtrl.courseFinished || lessonCtrl.isLast)" ng-click="lessonCtrl.next()" ng-class="{disabled: !lessonCtrl.finished}">Continue the course</a>
-            <a href class="btn btn-success" ng-show="lessonCtrl.courseFinished || lessonCtrl.isLast" ng-click="lessonCtrl.finish()" ng-class="{disabled: !(lessonCtrl.courseFinished || lessonCtrl.finished)}">Finish the course</a>
-            <a href class="btn btn-danger" ng-click="lessonCtrl.reset()">Reset progress</a>
+            <a href class="btn btn-success" ng-show="!(lessonCtrl.courseFinished || lessonCtrl.isLast)" ng-click="lessonCtrl.next()" ng-class="{disabled: !lessonCtrl.finished}">Kontynuuj kurs</a>
+            <a href class="btn btn-success" ng-show="lessonCtrl.courseFinished || lessonCtrl.isLast" ng-click="lessonCtrl.finish()" ng-class="{disabled: !(lessonCtrl.courseFinished || lessonCtrl.finished)}">Zakończ kurs</a>
+            <a href class="btn btn-danger" ng-click="lessonCtrl.reset()">Zresetuj</a>
         </div>
 
         <div class="well lesson-tip">
-            <h4><i class="glyphicon glyphicon-question-sign"></i>Lesson Tip</h4>
+            <h4><i class="glyphicon glyphicon-question-sign"></i>Instrukcja</h4>
             <p>{{lessonCtrl.currentStage.tooltip}}</p>
         </div>
 
