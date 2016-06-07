@@ -241,31 +241,31 @@
 	  {
         "command": "git status",
         "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log"],
-        "description": "W dokumencie 'A.txt' nastąpiły pewne zmiany które chcemy przenieść do zewnętrznego repozytorium. Sprawdź czy faktycznie zmiany miały miejsce wykorzystując komendę 'status'",
+        "description": "W dokumencie A.txt nastąpiły pewne zmiany, które chcemy przenieść do zewnętrznego repozytorium. Sprawdź czy faktycznie zmiany miały miejsce wykorzystując komendę 'git status'",
         "tooltip": "Użyj komendy 'git status'",
-        "error": "Please use 'git status' command!",
+        "error": "Wywołaj polecenie 'git status'!",
         "prerequisites": ["lesson10"]
       },
       {
         "command": ["git add -A", "git add A.txt", "git add *.txt", "git add *"],
         "availableCommands": ["git add -A", "git add A.txt", "git help status", "git --help remote", "git remote -v", "git log"],
         "description": "Dodaj wszystkie zmienione pliki (A.txt) do następnej zmiany",
-        "tooltip": "Użyj komendy 'git remote add origin \"/d/git-repo\"'",
-        "error": "Please use 'git add' command!"
+        "tooltip": "Użyj komendy 'git add -A'",
+        "error": "Wywołaj polecenie 'git add -A!"
       },
       {
-        "command": "git commit -m \"Third commit\"",
+        "command": "git commit -m \"third commit\"",
         "availableCommands": ["git help commit", "git --help commit", "git remote -v", "git status", "git log"],
-        "description": "Zrób commit zmian wywołując polecenie commit",
+        "description": "Zacommituj zmiany wywołując polecenie 'git commit'",
         "tooltip": "Użyj komendy 'git commit -m \"third commit\"",
-        "error": "Please use 'git commit' command!"
+        "error": "Wywołaj polecenie 'git commit -m \"third commit\"!"
       },
       {
         "command": "git push -u origin master",
         "availableCommands": ["git help push", "git --help push", "git remote -v", "git status", "git log"],
-        "description": "Dodajemy zmiany w zewnętrzym repozytorium za pomocą komendy push",
-        "tooltip": "Użyj komendy 'git push'",
-        "error": "Please use 'git push' command!"
+        "description": "Dodajemy zmiany w zewnętrzym repozytorium za pomocą komendy 'git push'",
+        "tooltip": "Użyj komendy 'git push -u origin master'",
+        "error": "Wywołaj polecenie 'git push -u origin master'!"
       }
     ]
   }
