@@ -66,38 +66,38 @@
       {
         "command": "git status",
         "availableCommands": ["git help status", "git --help status"],
-        "description": "Dodaliśmy nowy plik tekstowy do Twojego repozytorium o nazwie document.txt. Żeby dowiedzieć się o tym na własną rękę użyj poznanej już komendy 'status'. Wyświetlony zostanie stan aktualnie śledzonego projektu. Będzie to lista plików gotowych do zacommitowania oraz informacje o tym które pliki nie są jeszcze śledzone.",
+        "description": "Dodaliśmy nowy plik tekstowy do Twojego repozytorium o nazwie document.txt. Żeby dowiedzieć się o tym na własną rękę użyj poznanej już komendy 'git status'. Wyświetlony zostanie stan aktualnie śledzonego projektu. Będzie to lista plików gotowych do zacommitowania oraz informacje o tym, które pliki nie są jeszcze śledzone",
         "tooltip": "Użyj poznanej wcześniej komendy 'git status'",
-        "error": "Please use 'git status' command!",
+        "error": "Wywołaj polecenie 'git status'!",
         "prerequisites": ["lesson4"]
       },
       {
         "command": ["git add document.txt", "git add *.txt", "git add *"],
         "availableCommands": ["git help add", "git --help add", "git status"],
-        "description": "Jak widzisz, Git nie śledzi zmian dokonanych w obrębie pliku 'document.txt'. Musimy zmienić to zachowanie przez dodanie go do repozytorium poprzez komendę 'git add nazwa_pliku.'",
+        "description": "Jak widzisz, Git nie śledzi zmian dokonanych w obrębie pliku 'document.txt'. Musimy zmienić to zachowanie przez dodanie go do repozytorium poprzez komendę 'git add'",
         "tooltip": "Użyj komendy 'git add document.txt' aby spowodować że nowy plik 'document.txt' będzie od tej pory śledzony przez narzędzie Git",
-        "error": "Please use 'git add document.txt' command!"
+        "error": "Wywołaj polecenie 'git add document.txt'!"
       },
       {
         "command": "git status",
         "availableCommands": ["git help status", "git --help status"],
         "description": "Świetnie! Teraz wywołaj ponownie 'git status', żeby sprawdzić czy wszystko przebiegło w porządku.",
         "tooltip": "Użyj komendy 'git status'",
-        "error": "Please use 'git status' command!"
+        "error": "Wywołaj polecenie 'git status'!"
       },
 	  {
         "command": "git commit -m \"first commit\"",
         "availableCommands": ["git help commit", "git --help commit"],
-        "description": "Skoro plik 'document.txt' został dodany do śledzenia nastąpił czas aby zacommitować zmiany wprowadzone w projekcie... Służy do tego komenda 'commit'",
+        "description": "Skoro plik 'document.txt' został dodany do śledzenia to nastąpił czas, aby zacommitować zmiany wprowadzone w projekcie. Służy do tego komenda 'git commit'",
         "tooltip": "Użyj komendy 'git commit -m \"first commit\"'",
-        "error": "Please use 'git commit -m \"first commit\"' command!"
+        "error": "Wywołaj polecenie 'git commit -m \"first commit\"'!"
       },
 	  {
         "command": "git status",
         "availableCommands": ["git help status", "git --help status"],
-        "description": "Teraz należy sprawdzić czy plik został zacommitowany. Ponownie wykonajmy polecenie status'",
+        "description": "Teraz należy sprawdzić czy plik został zacommitowany. Ponownie wykonajmy polecenie 'git status'",
         "tooltip": "Użyj komendy 'git status",
-        "error": "Please use 'git status' command!"
+        "error": "Wywołaj polecenie 'git status'!"
       }
     ]
   },
