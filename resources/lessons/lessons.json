@@ -152,36 +152,36 @@
   },
   {
     "id": 7,
-    "title": "Stop and reverse",
+    "title": "Cofnij zmiany",
     "stages": [
       {
         "command": "git status",
         "availableCommands": ["git help status", "git --help status", "git log"],
-        "description": "Czasem może zdarzyć się że nie chcemy commitować pewnych zmian i pasowałoby usunąć je z kolejnej zmiany... służy do tego komenda 'checkout'. Aktualnie zmieniły się w projekcie jeden z plików i został dodany do zmiany za pomocą komendy 'add'. Sprawdź czy plik faktycznie został zmodyfikowany wykorzystując polecenie 'status'.",
+        "description": "Czasem może się zdarzyć, że nie chcemy commitować pewnych zmian i należy usunąć je z kolejnej zmiany. Służy do tego komenda 'git checkout'. Aktualnie zmienił się w projekcie jeden z plików i został dodany do zmiany za pomocą komendy 'git add'. Sprawdź czy plik faktycznie został zmodyfikowany wykorzystując polecenie 'git status'",
         "tooltip": "Użyj komendy 'git status'",
-        "error": "Please use git status command",
+        "error": "Wywołaj polecenie 'git status'!",
         "prerequisites": ["lesson7"]
       },
       {
         "command": "git reset document.txt",
         "availableCommands": ["git help reset", "git --help reset", "git status", "git log"],
-        "description": "Czasem może zdarzyć się że nie chcemy commitować pewnych zmian i pasowałoby usunąć je z kolejnej zmiany... służy do tego komenda 'checkout'. Aktualnie zmieniły się w projekcie jeden z plików i został dodany do zmiany za pomocą komendy 'add'. Sprawdź czy plik faktycznie został zmodyfikowany wykorzystując polecenie 'status'.",
+        "description": "Czasem może się zdarzyć, że nie chcemy commitować pewnych zmian i należy usunąć je z kolejnej zmiany. Służy do tego komenda 'git checkout'. Aktualnie zmienił się w projekcie jeden z plików i został dodany do zmiany za pomocą komendy 'git add'. Sprawdź czy plik faktycznie został zmodyfikowany wykorzystując polecenie 'git status'",
         "tooltip": "Użyj komendy 'git reset document.txt'",
-        "error": "Please use 'git reset' command"
+        "error": "Wywołaj polecenie 'git reset'!"
       },
 	  {
         "command": "git checkout document.txt",
         "availableCommands": ["git status", "git help checkout", "git --help checkout", "git log"],
-        "description": "Wiedząc że plik jest zakwalifikowany do przyszłego commit-a wykorzystaj komendę 'checkout' aby przywrócić zmiany wprowadzone w pliku i nie wysyłać go do repozytorium w przyszłym commicie.",
+        "description": "Wiedząc, że plik jest zakwalifikowany do przyszłego commita, wykorzystaj komendę 'git checkout', aby przywrócić zmiany wprowadzone w pliku i nie wysyłać go do repozytorium w przyszłym commicie",
         "tooltip": "Użyj komendy 'git checkout document.txt'",
-        "error": "Please use 'git checkout' command!"
+        "error": "Wywołaj polecenie'git checkout'!"
       },
 	  {
         "command": "git status",
         "availableCommands": ["git help status", "git --help status", "git log"],
         "description": "Możesz teraz sprawdzić za pomocą komendy status czy plik faktycznie został usunięty z listy",
         "tooltip": "Użyj komendy 'git status'",
-        "error": "Please use git status command"
+        "error": "Wywołaj polecenie 'git status'!"
       }
     ]
   },
