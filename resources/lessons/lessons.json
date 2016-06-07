@@ -108,37 +108,37 @@
       {
         "command": "git status",
         "availableCommands": ["git help status", "git --help status"],
-        "description": "Aktualnie wprowadziliśmy do projektu kilka zmian... Zostały dodane dodatkowe pliki A.txt, B.txt oraz C.txt które nie są śledzone oraz zmieniła się także zawartość pliku 'document.txt'. Wywołaj teraz polecenie 'status', aby przekonać się że zmiany faktycznie miały miejsce.",
+        "description": "Aktualnie wprowadziliśmy do projektu kilka zmian. Zostały dodane dodatkowe pliki A.txt, B.txt oraz C.txt, które nie są śledzone, a także zmieniła się zawartość pliku 'document.txt'. Wywołaj polecenie 'git status', aby przekonać się że zmiany faktycznie miały miejsce",
         "tooltip": "Użyj komendy 'git status'",
-        "error": "Please use 'git status' command!",
+        "error": "Wywołaj polecenie 'git status'!",
         "prerequisites": ["lesson5"]
       },
 	  {
         "command": "git add -A",
         "availableCommands": ["git help add", "git --help add", "git status"],
-        "description": "Ponieważ przekonałeś się że pliki uległy zmianie... Należy teraz dodać je do projektu oraz zatwierdzić zmiany. Używamy do tego po raz kolejny komendy add tym razem z opcją -A aby dodać wszystkie zmiany na raz bez konieczności wypisywania po kolei wszystkich plików.",
+        "description": "Jak się przekonałeś, pliki uległy zmianie. Należy teraz dodać je do projektu oraz zatwierdzić zmiany. Używamy do tego po raz kolejny komendy 'git add', ale razem z opcją -A, po to aby dodać wszystkie zmiany naraz, bez konieczności wpisywania po kolei wszystkich plików",
         "tooltip": "Użyj komendy 'git add -A",
-        "error": "Please use 'git add -A' command!"
+        "error": "Wywołaj polecenie 'git add -A'!"
       },
 	  {
         "command": "git commit -m \"second commit\"",
         "availableCommands": ["git help commit", "git --help commit", "git status"],
-        "description": "Zatwiedzone zmiany commitujemy dzieki komendzie 'commit'",
+        "description": "Zatwiedzone zmiany commitujemy dzieki komendzie 'git commit'",
         "tooltip": "Użyj komendy 'git commit -m \"second commit\"",
-        "error": "Please use 'git commit' command!"
+        "error": "Wywołaj polecenie git commit -m \"second commit\"!"
       },
 	  {
         "command": "git status",
         "availableCommands": ["git help status", "git --help status"],
-        "description": "Aby sprawdzić czy wszystko się powiodło wywołujemy po raz kolejny komendę 'status'",
+        "description": "Aby sprawdzić czy wszystko się powiodło wywołujemy po raz kolejny komendę 'git status'",
         "tooltip": "Użyj komendy 'git status'",
-        "error": "Please use 'git status' command!"
+        "error": "Wywołaj polecenie 'git status'!"
       }
     ]
   },
   {
     "id": 6,
-    "title": "Pokaż mi logi",
+    "title": "Pokaż mi logi!!!",
     "stages": [
       {
         "command": "git log",
