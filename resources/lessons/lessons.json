@@ -138,14 +138,14 @@
   },
   {
     "id": 6,
-    "title": "Pokaż mi logi!!!",
+    "title": "Pokaż mi logi!",
     "stages": [
       {
         "command": "git log",
         "availableCommands": ["git help log", "git --help log"],
-        "description": "Ponieważ w naszym projekcie może uczestniczyć wiele osób i wiele z nich może do niego dodawać zawartość... istnieje narzędzie które pozwala sprawdzić listę zmian związanych z projektem. Użyjemy teraz komendy 'log' która wylistuje nasze commity.",
+        "description": "Ponieważ w naszym projekcie może uczestniczyć wiele osób i wiele z nich może do niego dodawać zawartość to istnieje narzędzie, które pozwala sprawdzić listę zmian związanych z projektem. Użyjemy teraz komendy 'git log' która wylistuje nasze commity",
         "tooltip": "Użyj komendy 'git log'",
-        "error": "Please use 'git log' command!",
+        "error": "Wywołaj polecenie 'git log'!",
         "prerequisites": ["lesson6"]
       }
     ]
