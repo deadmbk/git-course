@@ -24,17 +24,17 @@
     "stages": [
       {
         "command": ["git help", "git --help"],
-        "description": "Help pozwala na znalezienie informacji i opisu na temat komend używanych w programie. Jeśli nie podamy żadnej konkretnej komedy odnośnie której chcemy uzyskać informację to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend.",
+        "description": "Help pozwala na znalezienie informacji i opisu na temat komend użwanych w programie. Jeśli nie podamy żadnej konkretnej komedy, odnośnie której chcemy uzyskać informacje, to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend.",
         "tooltip": "Wywołaj polecenie 'git help' aby wyświetlić informacje na temat dostępnej pomocy.",
-        "error": "Please use 'git help' command!",
+        "error": "Wywołaj polecenie 'git help'!",
         "prerequisites": ["lesson2"]
       },
 	  {
         "command": "git help status",
         "availableCommands": ["git help", "git --help"],
-        "description": "Help pozwala na znalezienie informacji i opisu na temat komend użwanych w programie. Jeśli nie podamy żadnej konkretnej komedy odnośnie której chcemy uzuskać informację to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend",
-        "tooltip": "Wywołaj polecenie 'git help status' aby wyświetlić szczegółowe informacje na temat dostępnej pomocy w programie odnośnie komendy 'status'",
-        "error": "Please use 'git help status' command!"
+        "description": "Help pozwala na znalezienie informacji i opisu na temat komend użwanych w programie. Jeśli nie podamy żadnej konkretnej komedy, odnośnie której chcemy uzyskać informacje, to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend.",
+        "tooltip": "Wywołaj polecenie 'git help status' aby wyświetlić szczegółowe informacje odnośnie komendy 'git status'",
+        "error": "Wywołaj polecenie 'git help status' command!"
       }
     ]
   },
