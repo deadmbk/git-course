@@ -2,8 +2,22 @@
 
     <div class="col-lg-8">
         <h1>Witamy na stronie kursu Gita!</h1>
-
         <a href="" ng-click="homeCtrl.start()" class="btn btn-success">Rozpocznij kurs</a>
+		<div id="descriptionDiv">
+			<img src="..\..\..\assets\img\git.jpg" id="git_logo" />
+			<h3>Git</h3>
+			<p>Jest to szybki, rozproszony system kontroli wersji dostępny na licencji open-source. Stworzył go i zaprojektował Linus Torvalds jako narzędzie wspomagające rozwój jądra Linux. Git stanowi wolne oprogramowanie i został opublikowany na licencji GNU GPL w wersji 2.</p>
+			<p>Dla Git-a inspiracją były narzędzia "Bitkeeper" i "Monotone". Początkowo był zaprojektowany jako narzędzie kontroli wersji niskiego poziomu, na którym inni mogli pisać swoje własne aplikacje. Jednak z biegiem czasu Git stał się w pełni rozwiniętym systemem kontroli wersji.</p>
+			<p><h4>Głównymi cechami systemu są:</h4>
+				<ul>
+					<li><strong>Mocne wsparcie dla nieliniowego tworzenia aplikacji</strong>- Git wspiera branch-owanie i merge-owanie oraz posiada narzędzia do wizualizacji i poruszania się po nieliniowej historii projektu.</li>
+					<li><strong>Kompatybilnośc z istnijącymi systemami/protokołami</strong>- Dane można wymieniać przez HTTP(S), FTP, rsync, SSH</li>
+					<li><strong>Rozproszone środowisko</strong>- Każdy programista posiada własną kopię repozytorium, do której może zapisywać zmiany bez połączenia z siecią; następnie zmiany mogą być wymieniane między lokalnymi repozytoriami.</li>
+					<li><strong>Wydajna obsługa dużych projektów</strong>- System Git według zapewnień Torvaldsa, a także według testów fundacji Mozilla, jest o rzędy wielkości szybszy niż niektóre konkurencyjne rozwiązania.</li>
+					<li><strong>Rewizja to obraz całego projektu</strong>-  W przeciwieństwie do innych systemów kontroli wersji, Git nie zapamiętuje zmian między kolejnymi rewizjami, lecz kompletne obrazy.</li>
+				</ul>
+			</p>
+		</div>
         <a href="" ng-click="homeCtrl.continue()" class="btn btn-success" ng-show="homeCtrl.lessonNo">Kontynuuj kurs</a>
     </div>
 
