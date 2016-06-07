@@ -24,16 +24,16 @@
     "stages": [
       {
         "command": ["git help", "git --help"],
-        "description": "Help pozwala na znalezienie informacji i opisu na temat komend użwanych w programie. Jeśli nie podamy żadnej konkretnej komedy, odnośnie której chcemy uzyskać informacje, to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend.",
-        "tooltip": "Wywołaj polecenie 'git help' aby wyświetlić informacje na temat dostępnej pomocy.",
+        "description": "Help pozwala na znalezienie informacji i opisu na temat komend użwanych w programie. Jeśli nie podamy żadnej konkretnej komedy, odnośnie której chcemy uzyskać informacje, to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend",
+        "tooltip": "Wywołaj polecenie 'git help', aby wyświetlić informacje na temat dostępnej pomocy.",
         "error": "Wywołaj polecenie 'git help'!",
         "prerequisites": ["lesson2"]
       },
 	  {
         "command": "git help status",
         "availableCommands": ["git help", "git --help"],
-        "description": "Help pozwala na znalezienie informacji i opisu na temat komend użwanych w programie. Jeśli nie podamy żadnej konkretnej komedy, odnośnie której chcemy uzyskać informacje, to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend.",
-        "tooltip": "Wywołaj polecenie 'git help status' aby wyświetlić szczegółowe informacje odnośnie komendy 'git status'",
+        "description": "Help pozwala na znalezienie informacji i opisu na temat komend użwanych w programie. Jeśli nie podamy żadnej konkretnej komedy, odnośnie której chcemy uzyskać informacje, to zostanie wyświetlony opis narzędzia git oraz lista najczęściej wykorzystywanych komend",
+        "tooltip": "Wywołaj polecenie 'git help status', aby wyświetlić szczegółowe informacje odnośnie komendy 'git status'",
         "error": "Wywołaj polecenie 'git help status' command!"
       }
     ]
@@ -45,17 +45,17 @@
       {
         "command": "git init",
         "availableCommands": ["git help init", "git --help init"],
-        "description": "Komenda 'init' powoduje założenie nowego projektu w folderze w którym aktualnie się znajdujemy i śledzenie zmian w tym folderze przez narzędzie Git",
-        "tooltip": "Użyj komendy 'git init' aby zainicjalizować nowy projekt git",
-        "error": "Please use 'git init' command!",
+        "description": "Komenda 'git init' powoduje założenie nowego projektu w folderze, w którym aktualnie się znajdujemy i śledzenie zmian w tym folderze przez narzędzie Git",
+        "tooltip": "Użyj komendy 'git init', aby zainicjalizować nowy projekt git",
+        "error": "Wywołaj polecenie 'git init'!",
         "prerequisites": ["lesson3"]
       },
       {
         "command": "git status",
         "availableCommands": ["git help status", "git --help status"],
         "description": "Komenda status powoduje wyświetlenie informacji na temat zmian w aktywnym folderze",
-        "tooltip": "Użyj polecenia 'git status' aby sprawdzić status",
-        "error": "Please use 'git status' command!"
+        "tooltip": "Użyj polecenia 'git status', aby sprawdzić status",
+        "error": "Wywołaj polecenie 'git status'!"
       }
     ]
   },
@@ -108,7 +108,7 @@
       {
         "command": "git status",
         "availableCommands": ["git help status", "git --help status"],
-        "description": "Aktualnie wprowadziliśmy do projektu kilka zmian... Zostały dodane dodatkowe pliki A.txt, B.txt oraz C.txt które nie są śledzone oraz zmieniła się także zawartość pliku 'document.txt'. Wywołaj teraz polecenie 'status' aby przekonać się że zmiany faktycznie miały miejsce.",
+        "description": "Aktualnie wprowadziliśmy do projektu kilka zmian... Zostały dodane dodatkowe pliki A.txt, B.txt oraz C.txt które nie są śledzone oraz zmieniła się także zawartość pliku 'document.txt'. Wywołaj teraz polecenie 'status', aby przekonać się że zmiany faktycznie miały miejsce.",
         "tooltip": "Użyj komendy 'git status'",
         "error": "Please use 'git status' command!",
         "prerequisites": ["lesson5"]
