@@ -213,24 +213,24 @@
       {
         "command": "git status",
         "availableCommands": ["git help status", "git --help remote", "git remote -v", "git log"],
-        "description": "W tej lekcji pobierzemy dane z repozytorium dodanego w poprzedniej lekcji... Najpierw jednak aby zaobserwować zmiany sprawdzimy aktualny stan folderu za pomocą komendy 'status'.",
-        "tooltip": "Użyj komendy 'git remote add origin \"/d/git-repo\"'",
-        "error": "Please use 'git status' command!",
+        "description": "W tej lekcji pobierzemy dane z repozytorium dodanego w poprzedniej lekcji. Najpierw jednak, aby zaobserwować zmiany sprawdzimy aktualny stan folderu za pomocą komendy 'git status'",
+        "tooltip": "Użyj komendy 'git status'",
+        "error": "Wywołaj polecenie 'git status'!",
         "prerequisites": ["lesson9"]
       },
 	  {
         "command": "git pull origin master",
         "availableCommands": ["git remote -v", "git help pull", "git --help pull", "git status", "git log"],
-        "description": "W tym momencie pobierzemy nowe pliki znajdujące się w repozytorim zdalnym. Do tego wykorzystujemy komendę pull podając nazwę repozytorium z którego chcemy pobrać dane (dodane w poprzedniej lekcji)",
-        "tooltip": "Użyj komendy 'git pull origin'",
-        "error": "Please use 'git pull origin' command!"
+        "description": "W tym momencie pobierzemy nowe pliki znajdujące się w repozytorim zdalnym. Do tego wykorzystamy komendę 'git pull' podając nazwę repozytorium, z którego chcemy pobrać dane",
+        "tooltip": "Użyj komendy 'git pull origin master'",
+        "error": "Wywołaj polecenie 'git pull origin' command!"
       },
 	  {
         "command": "git status",
         "availableCommands": ["git remote -v", "git help status", "git --help status", "git log"],
-        "description": "Sprawdzamy za pomocą komendy status czy nowe pliki pojawiły się w folderze.",
+        "description": "Na koniec, za pomocą komendy 'git status' sprawdźmy czy nowe pliki pojawiły się w folderze",
         "tooltip": "Użyj komendy 'git status'",
-        "error": "Please use 'git status' command!"
+        "error": "Wywołaj polecenie 'git status'!"
       }
     ]
   },
