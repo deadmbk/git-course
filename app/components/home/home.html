@@ -1,24 +1,38 @@
 <div class="row">
 
     <div class="col-lg-8">
-        <h1>Witamy na stronie kursu Gita!</h1>
-        <a href="" ng-click="homeCtrl.start()" class="btn btn-success">Rozpocznij kurs</a>
-		<div id="descriptionDiv">
+        <h1>Witamy na stronie kursu Gita i Git Flowa!</h1>
+
+		<a href="" ng-click="homeCtrl.start()" class="btn btn-success">Rozpocznij kurs</a>
+		<a href="" ng-click="homeCtrl.continue()" class="btn btn-success" ng-show="homeCtrl.lessonNo">Kontynuuj kurs</a>
+
+		<div class="description">
 			<img src="..\..\..\assets\img\git.jpg" id="git_logo" />
 			<h3>Git</h3>
 			<p>Jest to szybki, rozproszony system kontroli wersji dostępny na licencji open-source. Stworzył go i zaprojektował Linus Torvalds jako narzędzie wspomagające rozwój jądra Linux. Git stanowi wolne oprogramowanie i został opublikowany na licencji GNU GPL w wersji 2.</p>
 			<p>Dla Git-a inspiracją były narzędzia "Bitkeeper" i "Monotone". Początkowo był zaprojektowany jako narzędzie kontroli wersji niskiego poziomu, na którym inni mogli pisać swoje własne aplikacje. Jednak z biegiem czasu Git stał się w pełni rozwiniętym systemem kontroli wersji.</p>
-			<p><h4>Głównymi cechami systemu są:</h4>
-				<ul>
-					<li><strong>Mocne wsparcie dla nieliniowego tworzenia aplikacji</strong>- Git wspiera branch-owanie i merge-owanie oraz posiada narzędzia do wizualizacji i poruszania się po nieliniowej historii projektu.</li>
-					<li><strong>Kompatybilnośc z istnijącymi systemami/protokołami</strong>- Dane można wymieniać przez HTTP(S), FTP, rsync, SSH</li>
-					<li><strong>Rozproszone środowisko</strong>- Każdy programista posiada własną kopię repozytorium, do której może zapisywać zmiany bez połączenia z siecią; następnie zmiany mogą być wymieniane między lokalnymi repozytoriami.</li>
-					<li><strong>Wydajna obsługa dużych projektów</strong>- System Git według zapewnień Torvaldsa, a także według testów fundacji Mozilla, jest o rzędy wielkości szybszy niż niektóre konkurencyjne rozwiązania.</li>
-					<li><strong>Rewizja to obraz całego projektu</strong>-  W przeciwieństwie do innych systemów kontroli wersji, Git nie zapamiętuje zmian między kolejnymi rewizjami, lecz kompletne obrazy.</li>
-				</ul>
-			</p>
+			<p>Głównymi cechami systemu są:</p>
+			<ul>
+				<li><strong>Mocne wsparcie dla nieliniowego tworzenia aplikacji</strong>- Git wspiera branch-owanie i merge-owanie oraz posiada narzędzia do wizualizacji i poruszania się po nieliniowej historii projektu.</li>
+				<li><strong>Kompatybilnośc z istnijącymi systemami/protokołami</strong>- Dane można wymieniać przez HTTP(S), FTP, rsync, SSH</li>
+				<li><strong>Rozproszone środowisko</strong>- Każdy programista posiada własną kopię repozytorium, do której może zapisywać zmiany bez połączenia z siecią; następnie zmiany mogą być wymieniane między lokalnymi repozytoriami.</li>
+				<li><strong>Wydajna obsługa dużych projektów</strong>- System Git według zapewnień Torvaldsa, a także według testów fundacji Mozilla, jest o rzędy wielkości szybszy niż niektóre konkurencyjne rozwiązania.</li>
+				<li><strong>Rewizja to obraz całego projektu</strong>-  W przeciwieństwie do innych systemów kontroli wersji, Git nie zapamiętuje zmian między kolejnymi rewizjami, lecz kompletne obrazy.</li>
+			</ul>
+
+
+			<h3>Git Flow</h3>
+			<p>Git Flow jest narzędziem do integracji systemu kontroli wersji ze strategią procesu tworzenia oprogramowania. Jest to nakładka do gita rozszerzająca go o zbiór nowych komend umożliwiających nadanie temu systemowi kontroli wersji struktury zgodniej z workflowem wytwarzania oprogramowania. Jego głównym założeniem jest podział repozytorium na kilka ściśle powiązanych ze sobą płaszczyzn-gałęzi:</p>
+			<ul>
+				<li><strong>gałąź developerska (domyślnie: develop)</strong> - na niej nanoszone są bieżące zmiany commitowane przez programistów pomiędzy wypuszczaniem kolejnych wersji programu,</li>
+				<li><strong>gałąź produkcyjna (domyślnie: master)</strong> - zawiera bieżącą, najnowszą wersję programu,</li>
+				<li><strong>gałęzie z wersjami (domyślnie: release-&lt;numer_wersji&gt;)</strong> - po jednej na każdą wydaną wersję programu. Zmiany stąd trafiają później bezpośrednio na gałąź produkcyjną,</li>
+				<li><strong>gałęzie z nowymi funkcjonalnościami (domyślnie: feature-&lt;nazwa&gt;)</strong> - za każdym razem kiedy tworzymy nowy moduł/funkcjonalność do projektu, tworzymy dla niego automatycznie jego własną gałąź. Po zakończeniu prac jest ona mergowana z branchem developerskim,</li>
+				<li><strong>gałęzie z poprawkami (domyślnie: hotfix-&lt;nazwa&gt;)</strong> - poprawki mogą być wykonywane zarówno z gałęzi produkcyjnej jak i developerskiej i tworzone są dla nich własne odnogi. Po zacommitowaniu poprawki trafia ona do obu branchów (master oraz develop).</li>
+			</ul>
+
+
 		</div>
-        <a href="" ng-click="homeCtrl.continue()" class="btn btn-success" ng-show="homeCtrl.lessonNo">Kontynuuj kurs</a>
     </div>
 
     <div class="col-md-4">
