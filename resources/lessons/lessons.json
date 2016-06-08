@@ -341,12 +341,12 @@
   },
   {
     "id": 12,
-    "title": "Połączenie branchy",
+    "title": "Mergowanie branchy",
     "stages": [
       {
         "command": "git branch",
         "availableCommands": ["git help branch", "git --help branch", "git status", "git log", "git help status"],
-        "description": "W poprzedniej lekcji utworzyliśmy nowy branch w którym usunęliśmy plik A.txt i zacommitowaliśmy te zmiany. Przekonaliśmy się też o tym że oba branche (oryginalny i o nazwie 'cleared') różnią się teraz zawartością plików. W tym momencie wywołaj samą komendę 'branch' aby wylistować istniejące branche. Z listy wynika że jesteśmy w branchu o nazwie 'master' (gwiazdka obok nazwy gałęzi).",
+        "description": "W poprzedniej lekcji utworzyliśmy nowy branch, w którym usunęliśmy plik A.txt i zacommitowaliśmy te zmiany. Przekonaliśmy się też o tym, że oba branche (oryginalny i o nazwie 'cleared') różnią się teraz zawartością plików. W tym momencie wywołaj samą komendę 'git branch', aby wylistować istniejące branche. Z listy wynika, że jesteśmy w branchu o nazwie 'master'. Wskazuje na to gwiazdka umieszczona obok nazwy gałęzi",
         "tooltip": "Użyj komendy 'git branch'",
         "error": "Wywołaj polecenie 'git branch'!",
         "prerequisites": ["lesson12"]
@@ -354,21 +354,21 @@
 	  {
         "command": "git merge cleared",
         "availableCommands": ["git help merge", "git --help merge", "git status", "git log", "git help status", "git ls-files"],
-        "description": "W tym momencie połączym ze sobą branche 'master' oraz 'cleared'. Użyj do tego komendy 'merge'",
-        "tooltip": "Użyj komendy 'git branch'",
-        "error": "Wywołaj polecenie 'git branch'!"
+        "description": "W tym momencie połączymy ze sobą branche 'master' oraz 'cleared'. Użyj do tego komendy 'git merge'",
+        "tooltip": "Użyj komendy 'git merge cleared'",
+        "error": "Wywołaj polecenie 'git merge cleared'!"
       },
 	  {
         "command": "git branch",
         "availableCommands": ["git help branch", "git --help branch", "git status", "git log", "git help status"],
-        "description": "Ponieważ połączyliśmy już branche 'master' i 'cleared' przekonamy się o tym wykorzystując samą komendę branch, która wylistuje wszystkie branche.",
+        "description": "Ponieważ połączyliśmy już branche 'master' i 'cleared' przekonamy się o tym wykorzystując komendę 'git branch', która wylistuje wszystkie branche.",
         "tooltip": "Użyj komendy 'git branch'",
         "error": "Wywołaj polecenie 'git branch'!"
       },
       {
         "command": "git ls-files",
         "availableCommands": ["git help ls-files", "git --help ls-files", "git status", "git log"],
-        "description": "Na sam koniec sprawdzimy jeszcze stan plików za pomocą polecenia 'ls-files'. Widać że branche połączyły się i w gałęzi 'master' nie ma już pliku 'A.txt'.",
+        "description": "Na sam koniec sprawdzimy jeszcze stan plików za pomocą polecenia 'git ls-files'. Widać, że branche połączyły się i w gałęzi 'master' nie ma już pliku 'A.txt'",
         "tooltip": "Użyj komendy 'git ls-files'",
         "error": "Wywołaj polecenie 'git ls-files'!"
       }
