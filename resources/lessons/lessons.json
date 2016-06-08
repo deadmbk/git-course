@@ -415,5 +415,33 @@
         "error": "Wywołaj polecenie 'git flow feature finish T1'!"
       }
     ]
+  },
+  {
+    "id": 15,
+    "title": "[GIT FLOW] Release branch",
+    "stages": [
+      {
+        "command": "git flow release start R1",
+        "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
+        "description": "W pewnym momencie dewelopowanie funkcjonalności aplikacji chcemy wprowadzić je na środowisko produkcyjne. GIT FLOW ułatwia te zadania, dzięki komendzie 'git flow release'",
+        "tooltip": "Użyj komendy 'git flow release start R1'",
+        "error": "Wywołaj polecenie 'git flow release start R1'!",
+        "prerequisites": ["lesson15"]
+      },
+      {
+        "command": "git flow release publish R1",
+        "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
+        "description": "Aby stworzony release branch był widoczny dla innych osób pracujacych nad projektem należy go obublikować w repozytorium. Służy do tego polecenie 'git flow release publish [nazwa brancha]'",
+        "tooltip": "Użyj komendy 'git flow release publish R1'",
+        "error": "Wywołaj polecenie 'git flow release publish R1'!"
+      },
+      {
+        "command": "git flow release finish R1 -m \"R1\"",
+        "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
+        "description": "Po zakończeniu dewelopowania funkcjonalności, branch powinien zostać zmergowany do brancha develop i usunięty. Można to osiągnąć dzięki komendzie 'git flow release finish [nazwa brancha]. Dodatkowy parametr '-m' pozwala na podanie wiadomości z tagiem",
+        "tooltip": "Użyj komendy 'git flow release finish R1 -m \"R1\"'",
+        "error": "Wywołaj polecenie 'git flow release finish -m \"R1\"'!"
+      }
+    ]
   }
 ]
