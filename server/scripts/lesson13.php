@@ -6,5 +6,6 @@ require 'lesson12.php';
 //////////////////////////////////////
 
 executeCommand("git merge cleared");
+executeCommand("git branch -d cleared");
 
 ?>
