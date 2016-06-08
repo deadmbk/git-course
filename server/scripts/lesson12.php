@@ -5,6 +5,5 @@ require 'lesson11.php';
 /////// Lesson 12 workspace set ///////
 //////////////////////////////////////
 
-executeCommand("git flow init -d");
 
 ?>

@@ -271,7 +271,7 @@
   },
   {
     "id": 11,
-    "title": "Jak używać branchy",
+    "title": "Jak używać Branch-y",
     "stages": [
       {
         "command": "git ls-files",
@@ -306,15 +306,15 @@
         "command": "git commit -m \"my next commit\"",
         "availableCommands": ["git help commit", "git --help commit", "git status", "git log"],
         "description": "Nadszedł czas na zacommitowanie wprowadzonych zmian. Wykonaj to poprzez polecenie commit.",
-        "tooltip": "Użyj komendy 'git -m \"my next commit\"'",
-        "error": "Wywołaj polecenie 'git -m \"my next commit\"'!"
+        "tooltip": "Użyj komendy 'git commit -m \"my next commit\"'",
+        "error": "Wywołaj polecenie 'git commit -m \"my next commit\"'!"
       },
       {
         "command": "git ls-files",
         "availableCommands": ["git help ls-files", "git --help ls-files", "git status", "git log"],
         "description": "Po usunięciu wszystkich plików w poprzednich krokach sprawdzamy stan folderu wylistowując znajdujące się w nim pliki i sprawdzając czy faktycznie zostały usunięte. Osiągniemy to wykonując ponownie polecenie git 'ls-files'.",
-        "tooltip": "Użyj komendy 'git rm '*.txt''",
-        "error": "Wywołaj polecenie 'git rm '*.txt''!"
+        "tooltip": "Użyj komendy 'git ls-files'",
+        "error": "Wywołaj polecenie 'git ls-files'!"
       },
       {
         "command": "git checkout master",
