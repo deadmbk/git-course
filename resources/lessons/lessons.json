@@ -296,6 +296,13 @@
         "prerequisites": ["lesson12"]
       },
       {
+        "command": "git flow feature publish feature/1",
+        "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
+        "description": "Aby stworzony feature branch był widoczny dla innych osób pracujacych nad projektem należy go obublikować w repozytorium. Służy do tego polecenie 'git flow feature publish feature/1'",
+        "tooltip": "Użyj komendy 'git flow feature publish feature/1'",
+        "error": "Wywołaj polecenie 'git flow feature publish feature/1'!"
+      },
+      {
         "command": "git flow feature finish feature/1",
         "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
         "description": "Po zakończeniu dewelopowania funkcjonalności, branch powinien zostać zmergowany do brancha develop i usunięty. Można to osiągnąć dzięki komendzie 'git flow feature finish [nazwa brancha]'",
