@@ -443,5 +443,33 @@
         "error": "Wywołaj polecenie 'git flow release finish -m \"R1\"'!"
       }
     ]
+  },
+  {
+    "id": 16,
+    "title": "[GIT FLOW] Hotfix branch",
+    "stages": [
+      {
+        "command": "git flow hotfix start H1",
+        "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
+        "description": "Niestety, niekiedy może się zdażyć, że na środowisko produkcyjne zostanie wprowadzony kod z błędem. Potrzebujemy go usunąć z kodu i wprowadzić nową wersję na środowisko produkcyjne. GIT FLOW ułatwia te zadania, dzięki komendzie 'git flow release'",
+        "tooltip": "Użyj komendy 'git flow hotfix start H1'",
+        "error": "Wywołaj polecenie 'git flow hotfix start H1'!",
+        "prerequisites": ["lesson16"]
+      },
+      {
+        "command": "git flow hotfix publish H1",
+        "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
+        "description": "Aby stworzony hotfix branch był widoczny dla innych osób pracujacych nad projektem należy go obublikować w repozytorium. Służy do tego polecenie 'git flow hotfix publish [nazwa brancha]'",
+        "tooltip": "Użyj komendy 'git flow hotfix publish H1'",
+        "error": "Wywołaj polecenie 'git flow hotfix publish H1'!"
+      },
+      {
+        "command": "git flow hotfix finish H1 -m \"H1\"",
+        "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
+        "description": "Po zakończeniu dewelopowania poprawki, branch powinien zostać zmergowany do brancha develop i master, a następnie usunięty. Można to osiągnąć dzięki komendzie 'git flow hotfix finish [nazwa brancha]. Dodatkowy parametr '-m' pozwala na podanie wiadomości z tagiem",
+        "tooltip": "Użyj komendy 'git flow hotfix finish H1 -m \"H1\"'",
+        "error": "Wywołaj polecenie 'git flow hotfix finish -m \"H1\"'!"
+      }
+    ]
   }
 ]
