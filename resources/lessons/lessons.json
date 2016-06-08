@@ -271,12 +271,12 @@
   },
   {
     "id": 11,
-    "title": "Jak używać Branch-y",
+    "title": "Jak używać branchy",
     "stages": [
       {
         "command": "git ls-files",
         "availableCommands": ["git status", "git help status", "git help ls-files"],
-        "description": "W tej lekcji nauczymy się używać polecenia branch- zmieniać branch(gałąź) w projekcie. W tym przypadku ujawnia się nieliniowość Git-a. Zanim stworzymy nowy branch wylistujemy wszystkie pliki aby przekonać się z czego składa się projekt. Do tej czynności potrzebujemy komendy 'ls-files'",
+        "description": "W tej lekcji nauczymy się używać polecenia 'git branch'. W tym przypadku ujawnia się nieliniowość gita. Zanim stworzymy nowy branch wylistujemy wszystkie pliki, aby przekonać się z czego składa się projekt. Do tej czynności potrzebujemy komendy 'git ls-files'",
         "tooltip": "Użyj komendy 'git ls-files'",
         "error": "Wywołaj polecenie 'git ls-files'!",
         "prerequisites": ["lesson11"]
@@ -284,49 +284,56 @@
       {
         "command": "git branch cleared",
         "availableCommands": ["git help branch", "git --help branch", "git remote -v", "git status", "git log"],
-        "description": "Stworzenie nowego brancha odbywa się poprzez wywołanie komendy 'branch'. Stwórz teraz nową gałąź projektu o nazwie 'cleared' wykorzystując do tego wspomnianą komendę.",
+        "description": "Stworzenie nowego brancha odbywa się poprzez wywołanie komendy 'git branch'. Stwórz teraz nową gałąź projektu o nazwie 'cleared' wykorzystując do tego wspomnianą komendę.",
         "tooltip": "Użyj komendy 'git branch cleared'",
         "error": "Wywołaj polecenie 'git branch cleared'!"
       },
       {
         "command": "git checkout cleared",
         "availableCommands": ["git help checkout", "git --help checkout", "git status", "git log", "git ls-files", "git help ls-files"],
-        "description": "Kiedy już stworzyliśmy nową gałąź, przeniesiemy się teraz do niej aby wprowadzić zmiany w repozytorium. Dokonamy tego wykorzystując komendę 'checkout' i podając nazwę brancha do którego chcemy się przenieść.",
+        "description": "Skoro już stworzyliśmy nową gałąź to przenieśmy się teraz do niej aby wprowadzić zmiany w repozytorium. Dokonamy tego wykorzystując komendę 'git checkout' i podając nazwę brancha, do którego chcemy się przenieść.",
         "tooltip": "Użyj komendy 'git checkout cleared'",
         "error": "Wywołaj polecenie 'git checkout cleared'!"
       },
       {
         "command": "git rm A.txt",
         "availableCommands": ["git help rm", "git --help rm", "git status", "git log", "git ls-files", "git help ls-files"],
-        "description": "Aktualnie znajdujemy się w nowej gałęzi projektu o nazwie 'cleared'. Zmowyfikujemy teraz zawartośc projektu poprzez usunięcie wszytkich plików. Wykonaj polecenie 'rm'",
+        "description": "Aktualnie znajdujemy się w nowej gałęzi projektu o nazwie 'cleared'. Zmodyfikujemy teraz zawartośc projektu poprzez usunięcie wszytkich plików poleceniem 'git rm'",
         "tooltip": "Użyj komendy 'git rm A.txt'",
         "error": "Wywołaj polecenie 'git rm A.txt'!"
       },
       {
+        "command": "git add -A",
+        "availableCommands": ["git help add", "git --help add", "git status", "git log"],
+        "description": "Gdy usuneliśmy pliki, czas na to aby dodać wprowadzone modyfikacje do następnej zmiany. Zrobimy to przy pomocy znanej komendy 'git add'",
+        "tooltip": "Użyj komendy 'git add -A'",
+        "error": "Wywołaj polecenie 'git add -A'!"
+      },
+      {
         "command": "git commit -m \"my next commit\"",
         "availableCommands": ["git help commit", "git --help commit", "git status", "git log"],
-        "description": "Nadszedł czas na zacommitowanie wprowadzonych zmian. Wykonaj to poprzez polecenie commit.",
-        "tooltip": "Użyj komendy 'git commit -m \"my next commit\"'",
-        "error": "Wywołaj polecenie 'git commit -m \"my next commit\"'!"
+        "description": "Nadszedł czas na zacommitowanie wprowadzonych zmian. Wykonaj to poprzez polecenie 'git commit'",
+        "tooltip": "Użyj komendy 'git commit -m \"my next commit\"",
+        "error": "Wywołaj polecenie 'git commit -m \"my next commit\"!"
       },
       {
         "command": "git ls-files",
         "availableCommands": ["git help ls-files", "git --help ls-files", "git status", "git log"],
-        "description": "Po usunięciu wszystkich plików w poprzednich krokach sprawdzamy stan folderu wylistowując znajdujące się w nim pliki i sprawdzając czy faktycznie zostały usunięte. Osiągniemy to wykonując ponownie polecenie git 'ls-files'.",
-        "tooltip": "Użyj komendy 'git ls-files'",
-        "error": "Wywołaj polecenie 'git ls-files'!"
+        "description": "Po usunięciu wszystkich plików w poprzednich krokach sprawdzamy stan folderu wylistowując znajdujące się w nim pliki i sprawdzając czy faktycznie zostały usunięte. Osiągniemy to wykonując ponownie polecenie 'git ls-files'.",
+        "tooltip": "Użyj komendy 'git ls-files''",
+        "error": "Wywołaj polecenie 'git ls-files''!"
       },
       {
         "command": "git checkout master",
         "availableCommands": ["git help checkout", "git --help checkout", "git status", "git log", "git ls-files", "git help ls-files"],
-        "description": "Przechodzimy teraz do oryginalnej gałezi o nazwie 'master'. Osiągniemy to wykorzystując polecenie checkout i podając nazwę brancha, do którego chcemy się przenieść.",
+        "description": "Przechodzimy teraz do oryginalnej gałezi o nazwie 'master'. Osiągniemy to wykorzystując polecenie 'git checkout' i podając nazwę brancha, do którego chcemy się przenieść.",
         "tooltip": "Użyj komendy 'git checkout master'",
         "error": "Wywołaj polecenie 'git checkout master'!"
       },
       {
         "command": "git ls-files",
         "availableCommands": ["git help ls-files", "git --help ls-files", "git status", "git log"],
-        "description": "Na sam koniec będąc już w branchu 'master', wykorzystamy kolejny raz komendę ls-files aby przekonać się że stan folderu jest inny od brancha 'cleared'",
+        "description": "Na sam koniec będąc już na branchu 'master', wykorzystamy kolejny raz komendę 'git ls-files', aby przekonać się, że stan folderu jest inny od brancha 'cleared'",
         "tooltip": "Użyj komendy 'git ls-files'",
         "error": "Wywołaj polecenie 'git ls-files'!"
       }
@@ -334,12 +341,12 @@
   },
   {
     "id": 12,
-    "title": "Połączenie branchy",
+    "title": "Mergowanie branchy",
     "stages": [
       {
         "command": "git branch",
         "availableCommands": ["git help branch", "git --help branch", "git status", "git log", "git help status"],
-        "description": "W poprzedniej lekcji utworzyliśmy nowy branch w którym usunęliśmy plik A.txt i zacommitowaliśmy te zmiany. Przekonaliśmy się też o tym że oba branche (oryginalny i o nazwie 'cleared') różnią się teraz zawartością plików. W tym momencie wywołaj samą komendę 'branch' aby wylistować istniejące branche. Z listy wynika że jesteśmy w branchu o nazwie 'master' (gwiazdka obok nazwy gałęzi).",
+        "description": "W poprzedniej lekcji utworzyliśmy nowy branch, w którym usunęliśmy plik A.txt i zacommitowaliśmy te zmiany. Przekonaliśmy się też o tym, że oba branche (oryginalny i o nazwie 'cleared') różnią się teraz zawartością plików. W tym momencie wywołaj samą komendę 'git branch', aby wylistować istniejące branche. Z listy wynika, że jesteśmy w branchu o nazwie 'master'. Wskazuje na to gwiazdka umieszczona obok nazwy gałęzi",
         "tooltip": "Użyj komendy 'git branch'",
         "error": "Wywołaj polecenie 'git branch'!",
         "prerequisites": ["lesson12"]
@@ -347,21 +354,25 @@
 	  {
         "command": "git merge cleared",
         "availableCommands": ["git help merge", "git --help merge", "git status", "git log", "git help status", "git ls-files"],
+<<<<<<< HEAD
         "description": "W tym momencie połączym ze sobą branche 'master' oraz 'cleared'. Użyj do tego komendy 'merge'",
+=======
+        "description": "W tym momencie połączymy ze sobą branche 'master' oraz 'cleared'. Użyj do tego komendy 'git merge'",
+>>>>>>> dfcc564a05fd3ece566c909c8cb149ccb0324ce3
         "tooltip": "Użyj komendy 'git merge cleared'",
         "error": "Wywołaj polecenie 'git merge cleared'!"
       },
 	  {
         "command": "git branch",
         "availableCommands": ["git help branch", "git --help branch", "git status", "git log", "git help status"],
-        "description": "Ponieważ połączyliśmy już branche 'master' i 'cleared' przekonamy się o tym wykorzystując samą komendę branch, która wylistuje wszystkie branche.",
+        "description": "Ponieważ połączyliśmy już branche 'master' i 'cleared' przekonamy się o tym wykorzystując komendę 'git branch', która wylistuje wszystkie branche.",
         "tooltip": "Użyj komendy 'git branch'",
         "error": "Wywołaj polecenie 'git branch'!"
       },
       {
         "command": "git ls-files",
         "availableCommands": ["git help ls-files", "git --help ls-files", "git status", "git log"],
-        "description": "Na sam koniec sprawdzimy jeszcze stan plików za pomocą polecenia 'ls-files'. Widać że branche połączyły się i w gałęzi 'master' nie ma już pliku 'A.txt'.",
+        "description": "Na sam koniec sprawdzimy jeszcze stan plików za pomocą polecenia 'git ls-files'. Widać, że branche połączyły się i w gałęzi 'master' nie ma już pliku 'A.txt'",
         "tooltip": "Użyj komendy 'git ls-files'",
         "error": "Wywołaj polecenie 'git ls-files'!"
       }
