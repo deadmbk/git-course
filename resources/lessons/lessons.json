@@ -354,11 +354,7 @@
 	  {
         "command": "git merge cleared",
         "availableCommands": ["git help merge", "git --help merge", "git status", "git log", "git help status", "git ls-files"],
-<<<<<<< HEAD
-        "description": "W tym momencie połączym ze sobą branche 'master' oraz 'cleared'. Użyj do tego komendy 'merge'",
-=======
         "description": "W tym momencie połączymy ze sobą branche 'master' oraz 'cleared'. Użyj do tego komendy 'git merge'",
->>>>>>> dfcc564a05fd3ece566c909c8cb149ccb0324ce3
         "tooltip": "Użyj komendy 'git merge cleared'",
         "error": "Wywołaj polecenie 'git merge cleared'!"
       },
