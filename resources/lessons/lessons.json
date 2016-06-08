@@ -271,7 +271,7 @@
   },
   {
     "id": 11,
-    "title": "Jak używać Branch-y",
+    "title": "Jak używać branchy",
     "stages": [
       {
         "command": "git ls-files",
@@ -377,7 +377,7 @@
         "description": "Aby zainicjować git flow w aktualnym folderze należy wykonać polecenie 'git flow init -d'",
         "tooltip": "Użyj komendy 'git flow init -d'",
         "error": "Wywołaj polecenie 'git flow init -d'!",
-        "prerequisites": ["lesson14"]
+        "prerequisites": ["lesson13"]
       }
     ]
   },
@@ -386,19 +386,26 @@
     "title": "[GIT FLOW] Feature branch",
     "stages": [
       {
-        "command": "git flow feature start feature/1",
+        "command": "git flow feature start T1",
         "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
         "description": "Tworzenie nowych funkcjonalności w projekcie ułatwią nam tzw. \"feature branche\", na których będziemy umieszczać nasze zmiany. Feature branch tworzy się poleceniem 'git flow feature start [nazwa brancha]', które tworzy go na bazie brancha develop i od razu się do niego przełącza",
-        "tooltip": "Użyj komendy 'git flow feature start feature/1'",
-        "error": "Wywołaj polecenie 'git flow feature start feature/1'!",
-        "prerequisites": ["lesson15"]
+        "tooltip": "Użyj komendy 'git flow feature start T1'",
+        "error": "Wywołaj polecenie 'git flow feature start T1'!",
+        "prerequisites": ["lesson14"]
       },
       {
-        "command": "git flow feature finish feature/1",
+        "command": "git flow feature publish T1",
+        "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
+        "description": "Aby stworzony feature branch był widoczny dla innych osób pracujacych nad projektem należy go obublikować w repozytorium. Służy do tego polecenie 'git flow feature publish [nazwa brancha]'",
+        "tooltip": "Użyj komendy 'git flow feature publish T1'",
+        "error": "Wywołaj polecenie 'git flow feature publish T1'!"
+      },
+      {
+        "command": "git flow feature finish T1",
         "availableCommands": ["git flow feature help", "git flow feature --help", "git remote -v", "git log", "git status"],
         "description": "Po zakończeniu dewelopowania funkcjonalności, branch powinien zostać zmergowany do brancha develop i usunięty. Można to osiągnąć dzięki komendzie 'git flow feature finish [nazwa brancha]'",
-        "tooltip": "Użyj komendy 'git flow feature finish feature/1'",
-        "error": "Wywołaj polecenie 'git flow feature finish feature/1'!"
+        "tooltip": "Użyj komendy 'git flow feature finish T1'",
+        "error": "Wywołaj polecenie 'git flow feature finish T1'!"
       }
     ]
   }
