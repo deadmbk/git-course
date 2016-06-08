@@ -296,18 +296,11 @@
         "error": "Wywołaj polecenie 'git checkout cleared'!"
       },
       {
-        "command": "git rm 'A.txt'",
+        "command": "git rm A.txt",
         "availableCommands": ["git help rm", "git --help rm", "git status", "git log", "git ls-files", "git help ls-files"],
         "description": "Aktualnie znajdujemy się w nowej gałęzi projektu o nazwie 'cleared'. Zmowyfikujemy teraz zawartośc projektu poprzez usunięcie wszytkich plików. Wykonaj polecenie 'rm'",
-        "tooltip": "Użyj komendy 'git rm 'A.txt''",
-        "error": "Wywołaj polecenie 'git rm 'A.txt''!"
-      },
-      {
-        "command": "git add -A'",
-        "availableCommands": ["git help add", "git --help add", "git status", "git log"],
-        "description": "Gdy usuneliśmy pliki, czas na to aby dodać wprowadzone modyfikacje do następnej zmiany. Wykonamy to przy pomocy znanej komendy 'add'",
-        "tooltip": "Użyj komendy 'git add -A'",
-        "error": "Wywołaj polecenie 'git add -A'!"
+        "tooltip": "Użyj komendy 'git rm A.txt'",
+        "error": "Wywołaj polecenie 'git rm A.txt'!"
       },
       {
         "command": "git commit -m \"my next commit\"",
